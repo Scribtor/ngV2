@@ -35,5 +35,5 @@
 		this._picture = obj && obj.picture || null;
 	}
 
-    
+ 
 }
