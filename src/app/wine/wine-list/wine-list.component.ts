@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Wine } from '../model/wine.model';
 
 @Component({
   selector: 'wcellar-wine-list',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wine-list.component.scss']
 })
 export class WineListComponent implements OnInit {
-
-  constructor() { }
+  @Input() private WineList: Wine;
+  constructor() { 
+    console.log(this.WineList);
+  }
 
   ngOnInit(): void {
   }
