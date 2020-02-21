@@ -14,25 +14,25 @@
  export class Wine
 {
     private _id:number;
-    private _name:string;
-    private _year:number;
-    private _grapes:string;
-    private _country:string;
-    private _region:string;
-    private _description:string;
-    private _picture:string;
+    private name:string;
+    private year:number;
+    private grapes:string;
+    private country:string;
+    private region:string;
+    private description:string;
+    private picture:string;
 
     
     constructor(obj?: any) 
     {
 		this._id = obj && obj._id || null;
-		this._name = obj && obj.name || null;
-        this._year = obj && obj.year || null;
-		this._grapes = obj && obj.grapes || null;
-		this._country = obj && obj.country || null;
-		this._region = obj && obj.region || null;
-		this._description = obj && obj.description || null;
-		this._picture = obj && obj.picture || null;
+		this.name = obj && obj.name || null;
+    this.year = obj && obj.year || null;
+		this.grapes = obj && obj.grapes || null;
+		this.country = obj && obj.country || null;
+		this.region = obj && obj.region || null;
+		this.description = obj && obj.description || null;
+		this.picture = obj && obj.picture || null;
 	}
 
  

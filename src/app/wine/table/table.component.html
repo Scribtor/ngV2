@@ -6,10 +6,20 @@
         <th>Grapes <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
         <th>Country <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
         <th>Region <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+        <th>Description <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
+        <th>Pičkur <button class="btn btn-link"><span class="fa fa-sort"></span></button> </th>
       </tr>
     </thead>
     <tbody>
-      
+      <tr *ngFor="let wine of wines">
+        <td>{{wine.name}}</td>
+        <td>{{wine.year}}</td>
+        <td>{{wine.grapes}}</td>
+        <td>{{wine.country}}</td>
+        <td>{{wine.region}}</td>
+        <td>{{wine.description}}</td>
+        <td>{{wine.picture}}</td>
+      </tr>
     </tbody>
   </table>
   
