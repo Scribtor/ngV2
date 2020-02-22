@@ -7,12 +7,18 @@ import {Wine} from '../model/wine.model';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-@Input() public wines: Wine[];
-  constructor() { }
+ @Input() public wines: Wine[];
+
+  constructor() 
+  { 
+
+  }
 
   ngOnInit(): void {
   }
 
 }
 // Definiši mi atribut u klasi kao javni, sa imenom "wines" i tipom : Niz objekata klase vino
-// Input direktiva "@Input()" 
+// Input direktiva "@Input()" je ništa drugo do pokazatelj ANGULAR-u da prilikom izvršavanja ovog koda OČEKUJE da mu je već prilikom poziva HTML-a ove komponente kojoj ovaj TS fajl pripada, prosleđena vrednost za šta god stoji iza "@Input()", najčešće atribut kojem je definisan tip, ili i početna neka vrednost;
+// Input ima čudnu želju da gazi šta god stoji iza njegovog poziva, bez obzira bilo to nešto ili ništa
+// Vidi html ove komponente za zadnji komentar
