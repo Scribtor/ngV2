@@ -22,7 +22,7 @@ const WINES = [{"_id":1,"name":"CHATEAU DE SAINT COSME","year":2009,"grapes":"Gr
 })
 
 export class WineListComponent implements OnInit {
-  @Input() public WineList: Wine[]=[];
+  public WineList: Wine[]=[];
   constructor() 
   { 
     for (let i = 0; i < WINES.length; i++) 
@@ -36,3 +36,4 @@ export class WineListComponent implements OnInit {
   }
 
 }
+// Kada se ovaj .ts fajl pozove definiše se javni atribut tipa niz vina.
