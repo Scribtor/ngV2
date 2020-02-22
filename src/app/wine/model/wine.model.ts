@@ -140,7 +140,7 @@ const WINES =
         grapes: 'Chardonnay', 
         country: 'France', 
         region: 'Burgundy', 
-        description: 'Breaking the mold of the classics, this offering will surprise and undoubtedly get tongues wagging with the hints of coffee and tobacco in\\nperfect alignment with more traditional notes. Breaking the mold of the classics, this offering will surprise and\\nundoubtedly get tongues wagging with the hints of coffee and tobacco in\\nperfect alignment with more traditional notes. Sure to please the late-night crowd with the slight jolt of adrenaline it brings.', 
+        description: 'Breaking the mold of the classics, this offering will surprise and\\nundoubtedly get tongues wagging with the hints of coffee and tobacco in\\nperfect alignment with more traditional notes. Sure to please the late-night crowd with the slight jolt of adrenaline it brings.', 
         picture: 'morizottes.jpg'
     }
 ];
