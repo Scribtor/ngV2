@@ -14,3 +14,5 @@ export class TableComponent implements OnInit {
   }
 
 }
+// Definiši mi atribut u klasi kao javni, sa imenom "wines" i tipom : Niz objekata klase vino
+// Input direktiva "@Input()" 

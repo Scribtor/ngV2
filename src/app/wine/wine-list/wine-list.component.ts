@@ -36,4 +36,7 @@ export class WineListComponent implements OnInit {
   }
 
 }
-// Kada se ovaj .ts fajl pozove definiše se javni atribut tipa niz vina.
+// Kada se ovaj .ts fajl pozove definiše se javni atribut tipa niz vina. Više ne može da bude private jer je Angular od 9ke menjao nešto u načinu rada.
+// Budući da se radi samo sa dummy podacima, oni su definisani odma na vrhu fajla, posle uvoznih deklaracija. 
+// Prilikom svakog pravljenja objekta WineListComponent, njegov konstruktor iz dummy podataka for petljom izvlači jedan po jedan i pravi ih uz pomoć konstruktora klase Wine za svaki prepoznati objekat vina iz dummy podataka, a zatim ta iskonstruisana vina smešta u niz svoje klase koji je gore već definisan.
+// Vidi HTML ove komponente za dalje komentare
