@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'wcellar-edit-wine',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditWineComponent implements OnInit {
 
-  constructor() { }
+  constructor(private rt: Router) { }
 
   ngOnInit(): void {
   }
