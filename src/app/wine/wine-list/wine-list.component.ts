@@ -24,7 +24,7 @@ const WINES = [{"_id":1,"name":"CHATEAU DE SAINT COSME","year":2009,"grapes":"Gr
 
 export class WineListComponent implements OnInit {
   public WineList: Wine[]=[];
-  constructor(private rt: Router)
+  constructor()
   {
     for (let i = 0; i < WINES.length; i++)
     {
@@ -34,7 +34,7 @@ export class WineListComponent implements OnInit {
   }
   changePage(nPage:number)
   {
-    this.rt.navigate(['']);
+    // this.rt.navigate(['']);
   }
   ngOnInit(): void {
   }

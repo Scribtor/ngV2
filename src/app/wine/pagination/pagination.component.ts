@@ -15,7 +15,7 @@ selPage:number=1;
   constructor() { }
 
 
-	private getPageNo() :number
+	public getPageNo() :number
 	{
 		return Math.ceil(this.totalItems/this.pageSize);
   }
