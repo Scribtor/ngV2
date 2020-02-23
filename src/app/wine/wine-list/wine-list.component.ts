@@ -22,6 +22,11 @@ export class WineListComponent implements OnInit {
   {
     // this.rt.navigate(['']);
   }
+  setLimitGetResult(p:number)
+  {
+    console.log(`VIKANO je ${p}`);
+
+  }
   ngOnInit(): void {
   }
 

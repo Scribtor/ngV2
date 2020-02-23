@@ -9,11 +9,14 @@ export class PaginationComponent implements OnInit {
 @Input() totalItems: number;
 @Input() pageSize:number;
 @Output() onPageSel: EventEmitter<number>;
+@Output() pageLimit: EventEmitter<number>;
 pages:number[];
 selPage:number=1;
+selectValue:HTMLSelectElement= document.getElementById('plimit') as HTMLSelectElement;
 
   constructor() {
     this.onPageSel = new EventEmitter;
+    this.pageLimit = new EventEmitter;
    }
 
 
@@ -22,6 +25,10 @@ selPage:number=1;
 		return Math.ceil(this.totalItems/this.pageSize);
   }
 
+  setLimit()
+  {
+    this.pageLimit.emit(Number(this.selectValue.value));
+  }
   pageSel(newP: number)
   {
     if (newP>=1 && newP<= this.getPageNo()) {
