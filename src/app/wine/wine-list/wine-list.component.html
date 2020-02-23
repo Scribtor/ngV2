@@ -17,3 +17,10 @@
 <!-- Ovaj izraz će najčešće pući pri kompajliranju ako imena atributa nisu case-sensitive identična ILI ako "wines" i "WineList" nisu istog tipa promenjive -->
 <!-- U ovom primeru, wines MORA biti definisan kao niz vina, kao što MORA i WineList -->
 <!-- VIDI TS fajl table komponente za dalji tok procesa -->
+
+
+<!-- Što se tiče preloma strana (paginacija) ovde je barem stvar prilično prosta. -->
+<!-- Prilikom poziva komponente za prelom, prosleđuje se dužina niza vina kao jedan atribut, i veličina spram koje se prelama kao drugi atribut -->
+<!-- Prvi će se menjati spram veličine niza, a drugi je zasad statičan i ručno se unosi. U trenutnom slučaju, želimo iz nekog razloga da na svakoj stranici imamo po jedno vino -->
+<!-- Izraz u običnim zagradama je vrednost @Output iz komponente koja se poziva, i na njen događaj, odnosno EMITOVANJE koje se dogodilo, želimo da odreagujemo -->
+<!-- Vidi TS fajl komponente -->

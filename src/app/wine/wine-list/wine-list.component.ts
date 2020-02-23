@@ -44,3 +44,4 @@ export class WineListComponent implements OnInit {
 // Budući da se radi samo sa dummy podacima, oni su definisani odma na vrhu fajla, posle uvoznih deklaracija.
 // Prilikom svakog pravljenja objekta WineListComponent, njegov konstruktor iz dummy podataka for petljom izvlači jedan po jedan i pravi ih uz pomoć konstruktora klase Wine za svaki prepoznati objekat vina iz dummy podataka, a zatim ta iskonstruisana vina smešta u niz svoje klase koji je gore već definisan.
 // Vidi HTML ove komponente za dalje komentare
+// changePage je zasad neiplementirana metoda koja će tek dobiti funkcionalnost, ali vredi pomenuti da je ovde definisana samo iz razloga što je potrebna reakcija na EventEmitter iz podkomponente koja određuje prelom strane
