@@ -1,9 +1,9 @@
 <div class="text">
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
-    <li class="page-item"><a class="page-link">Previous</a></li>
-    <li class="page-item" *ngFor="let i of pages"><a class="page-link">{{i}}</a></li>
-    <li class="page-item"><a class="page-link">Next</a></li>
+    <li class="page-item"><a class="page-link" (click)="pageSel(selPage-1)" *ngIf="selPage>1">Previous</a></li>
+    <li class="page-item" *ngFor="let x of pages" (click)="pageSel(x)" [ngClass]="{'active': x==selPage}"><a class="page-link">{{x}}</a></li>
+    <li class="page-item"><a class="page-link" (click)="pageSel(selPage+1)" *ngIf="selPage<getPageNo()" >Next</a></li>
   </ul>
 </nav>
 </div>
