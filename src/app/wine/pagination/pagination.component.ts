@@ -12,7 +12,9 @@ export class PaginationComponent implements OnInit {
 pages:number[];
 selPage:number=1;
 
-  constructor() { }
+  constructor() {
+    this.onPageSel = new EventEmitter;
+   }
 
 
 	public getPageNo() :number
@@ -24,7 +26,7 @@ selPage:number=1;
   {
     if (newP>=1 && newP<= this.getPageNo()) {
       this.selPage=newP;
-      this.onPageSel.emit(this.selPage);
+      this.onPageSel.emit(newP);
     }
     console.log(`Active page set to: ${this.selPage}`);
   }
