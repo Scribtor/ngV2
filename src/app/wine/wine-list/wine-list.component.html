@@ -8,7 +8,7 @@
 </div>
 
 <div class="row">
-    <div class="col"><wcellar-pagination [totalItems]="WineList.length" [pageSize]="1" (PageSel)="changePage($event)" (pageLimit)="setLimitGetResult($event)"></wcellar-pagination></div>
+    <div class="col"><wcellar-pagination [totalItems]="WineList.length" [pageSize]="1" (onPageSel)="changePage($event)" (pageLimit)="setLimitGetResult($event)"></wcellar-pagination></div>
 </div>
 
 <!-- Prilikom pozivanja komponente wcellar-table, postavi vrednost atributa "wines" objekta definisanog u ts fajlu koji je za wcellar-table komponentu vezan, kao rezultat onoga što je pod navodnicima sa desne strane znaka jednakosti -->

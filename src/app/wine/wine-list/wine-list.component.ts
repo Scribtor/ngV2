@@ -20,7 +20,8 @@ export class WineListComponent implements OnInit {
   }
   changePage(nPage:number)
   {
-    // this.rt.navigate(['']);
+    console.log(`[WineListComponent] VIKALA ${nPage}`);
+
   }
   setLimitGetResult(p:number)
   {
