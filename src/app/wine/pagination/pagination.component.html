@@ -1,11 +1,4 @@
-<div class="text">
-  <select name="sel1" id="plimit" (change)="setLimit($event.target.value);">
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-  </select>
-</div>
-<div class="text">
+<div class="text-center">
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item"><a class="page-link" (click)="pageSel(selPage-1)" *ngIf="selPage>1">Previous</a></li>
@@ -14,6 +7,25 @@
   </ul>
 </nav>
 </div>
+
+<div class="text-left">
+  <select name="sel1" id="plimit" (change)="setLimit($event.target.value);">    
+    <!-- <option *ngFor="let x of lim" [value="x"]>{{x}}</option> -->
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+  </select>
+</div>
+
 <!-- PREVIOUS -->
 <!-- na događaj "click" poziva se metoda pageSel klase komponente, a za argument joj se prosleđuje atribut selPage iste te klase umanjen za 1 -->
 <!-- ngIf je pozvan ne bi li se dinamički sakrio prikaz elementa ako on ne odgovara na uslov sa desne strane jednakosti, pod navodnicima, odnosno ako se korisnik nalazi na prvoj stranici -->
@@ -28,3 +40,5 @@
 <!-- NEXT -->
 <!-- na događaj "click" poziva se metoda pageSel klase komponente, a za argument joj se prosleđuje atribut selPage iste te klase uvećan za 1 -->
 <!-- ngIf je pozvan ne bi li se dinamički sakrio prikaz elementa ako on ne odgovara na uslov sa desne strane jednakosti, pod navodnicima, odnosno ako se korisnik nalazi na poslednjoj stranici  -->
+
+<!-- .text>select[name="sel1"][id="plimit"]{(change)="setLimit($event.target.value);"}>option*4[value=$] -->

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { limit } from "../wine-list/wine-list.component";
 
 @Component({
   selector: 'wcellar-pagination',
@@ -14,6 +15,7 @@ pages:number[];
 selPage:number=0;
 // select1:HTMLSelectElement = document.getElementById('plimit') as HTMLSelectElement;
 retVal:number=-1;
+lim = limit;
 
   constructor() {
     this.onPageSel = new EventEmitter;
@@ -43,7 +45,7 @@ retVal:number=-1;
   }
   getPages(){
     this.pages=[];
-    for (let i = 0; i < this.getPageNo(); i++) {
+    for (let i = 0; i < this.pageSize; i++) {
       this.pages.push(i+1);
     }
   }
