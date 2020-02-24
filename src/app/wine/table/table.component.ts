@@ -7,7 +7,7 @@ import {Wine} from '../model/wine.model';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
- @Input() public wines: Wine[];
+ @Input() public Vina: Wine[];
 
   constructor() 
   { 
