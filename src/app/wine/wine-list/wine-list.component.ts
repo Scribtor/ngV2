@@ -26,7 +26,6 @@ export class WineListComponent implements OnInit {
   setLimitGetResult(p:number)
   {
     console.log(`VIKANO je ${p}`);
-
   }
   ngOnInit(): void {
   }

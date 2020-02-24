@@ -11,8 +11,9 @@ export class PaginationComponent implements OnInit {
 @Output() onPageSel: EventEmitter<number>;
 @Output() pageLimit: EventEmitter<number>;
 pages:number[];
-selPage:number=1;
-selectValue:HTMLSelectElement= document.getElementById('plimit') as HTMLSelectElement;
+selPage:number=0;
+select1:HTMLSelectElement = document.getElementById('plimit') as HTMLSelectElement;
+retVal:number=-1;
 
   constructor() {
     this.onPageSel = new EventEmitter;
@@ -27,7 +28,10 @@ selectValue:HTMLSelectElement= document.getElementById('plimit') as HTMLSelectEl
 
   setLimit()
   {
-    this.pageLimit.emit(Number(this.selectValue.value));
+    this.retVal = Number(this.select1.value);
+    this.pageLimit.emit(this.retVal);
+    console.log(this.retVal);
+
   }
   pageSel(newP: number)
   {
