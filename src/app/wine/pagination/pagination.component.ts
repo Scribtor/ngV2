@@ -12,7 +12,7 @@ export class PaginationComponent implements OnInit {
 @Output() pageLimit: EventEmitter<number>;
 pages:number[];
 selPage:number=0;
-select1:HTMLSelectElement = document.getElementById('plimit') as HTMLSelectElement;
+// select1:HTMLSelectElement = document.getElementById('plimit') as HTMLSelectElement;
 retVal:number=-1;
 
   constructor() {
