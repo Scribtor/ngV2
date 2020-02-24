@@ -1,5 +1,5 @@
 <div class="text">
-  <select name="sel1" id="plimit" (click)="setLimit()">
+  <select name="sel1" id="plimit" (change)="setLimit($event.target.value);">
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>

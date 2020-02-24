@@ -26,9 +26,9 @@ retVal:number=-1;
 		return Math.ceil(this.totalItems/this.pageSize);
   }
 
-  setLimit()
+  setLimit(p:string)
   {
-    this.retVal = Number(this.select1.value);
+    this.retVal = Number(p);
     this.pageLimit.emit(this.retVal);
     console.log(this.retVal);
 
