@@ -4,40 +4,11 @@
     <div class="col"><wcellar-search-form></wcellar-search-form></div>
 </div>
 <div class="row">
-    <div class="col"><wcellar-table [wines]="WineList"></wcellar-table></div>
+    <div class="col"><wcellar-table></wcellar-table></div>
 </div>
 
 <div class="row">
     <div class="col">
-        <wcellar-pagination
-        [totalItems]="limit"
-        [pageSize]="paginationSize"
-        (onPageSel)="changePage($event)"
-        (pageLimit)="setLimitGetResult($event)"
-        ></wcellar-pagination>
+        <wcellar-pagination></wcellar-pagination>
     </div>
 </div>
-<!-- Prilikom pozivanja komponente wcellar-table, postavi vrednost atributa "wines" objekta 
-    definisanog u ts fajlu koji je za wcellar-table komponentu vezan, 
-    kao rezultat onoga što je pod navodnicima sa desne strane znaka jednakosti -->
-<!-- U ovom slučaju, sa desne strane jednakosti je nešto što ANGULAR može da rastumači
-     kao atribut objekta definisanog u ts fajlu koji je vezan za html u kojem je ovaj komentar -->
-<!-- To će značiti da, pročitaj iz ts fajla koji je za ovaj html vezan,
-     vrednost atributa WineList i onda ga kao takvog prosledi komponenti wcellar-table 
-     uz dodelu vrednosti atributa WineList iz wcellar-wine-list komponente atributu wines komponenti wcellar-table -->
-<!-- Ovaj izraz će najčešće pući pri kompajliranju ako imena atributa nisu case-sensitive identična 
-    ILI ako "wines" i "WineList" nisu istog tipa promenjive -->
-<!-- U ovom primeru, wines MORA biti definisan kao niz vina, kao što MORA i WineList -->
-<!-- VIDI TS fajl table komponente za dalji tok procesa -->
-
-
-<!-- Što se tiče preloma strana (paginacija) ovde je barem stvar prilično prosta. -->
-<!-- Prilikom poziva komponente za prelom, prosleđuje se dužina niza vina kao jedan atribut,
-     i veličina spram koje se prelama kao drugi atribut -->
-<!-- Prvi će se menjati spram veličine niza, a drugi je zasad statičan i ručno se unosi.
-     U trenutnom slučaju, želimo iz nekog razloga da na svakoj stranici imamo po jedno vino -->
-<!-- Izraz u običnim zagradama je vrednost @Output iz komponente koja se poziva,
-     i na njen događaj, odnosno EMITOVANJE koje se dogodilo, želimo da odreagujemo -->
-<!-- Vidi TS fajl komponente -->
-<!-- veličina gde se strana prelama je inicijalno postavljena,
-     ali je podešeno da se dinamički menja spram korisničkog unosa -->
