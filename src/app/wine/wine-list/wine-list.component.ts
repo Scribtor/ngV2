@@ -11,11 +11,14 @@ export let limit: number=WINES.length;
 
 export class WineListComponent implements OnInit {
   public WineList: Wine[]=[];
-  public pSize:number=1;
+  public paginationSize:number=1;
+  // WineList je niz vina koji se prosleđuje komponenti tabele
+  //  paginationSize je promenjiva tipa number koja se prosleđuje komponenti preloma
   constructor()
   {
     this.buildList(0,limit);
   }
+  // Konstruktor inicijalno pravi taj niz vina koji se inicijalno postavlja na najduži mogući --- sva vina
   buildList(idxS:number,idxE:number)
   {
     this.WineList=[];
@@ -25,6 +28,10 @@ export class WineListComponent implements OnInit {
     }
     console.log(this.WineList);
   }
+  // metoda koja uzima dva brojčana parametra, prazni niz vina ako ga je bilo
+  // i ponovo ga kroz for petlju popunjava, ali na osnovu dva parametra
+  // početka i kraja podNiza niza vina (ovo se dobija na osnovu odabira 
+  // u  komponenti preloma//paginacije)
   changePage(nPage:number)
   {
     console.log(`[WineListComponent] VIKALA ${nPage}`);
@@ -33,15 +40,21 @@ export class WineListComponent implements OnInit {
   setLimitGetResult(p:number)
   {
     console.log(`[WineListComponent] VIKANO je ${p}`);
-    this.pSize=Math.ceil(limit/p);
+    this.paginationSize=Math.ceil(limit/p);
     this.buildList(0,p);
   }
   ngOnInit(): void {
   }
 
 }
-// Kada se ovaj .ts fajl pozove definiše se javni atribut tipa niz vina. Više ne može da bude private jer je Angular od 9ke menjao nešto u načinu rada.
+// Kada se ovaj .ts fajl pozove definiše se javni atribut tipa niz vina. 
+// Više ne može da bude private jer je Angular od 9ke menjao nešto u načinu rada.
 // Budući da se radi samo sa dummy podacima, oni su definisani odma na vrhu fajla, posle uvoznih deklaracija.
-// Prilikom svakog pravljenja objekta WineListComponent, njegov konstruktor iz dummy podataka for petljom izvlači jedan po jedan i pravi ih uz pomoć konstruktora klase Wine za svaki prepoznati objekat vina iz dummy podataka, a zatim ta iskonstruisana vina smešta u niz svoje klase koji je gore već definisan.
+// Prilikom svakog pravljenja objekta WineListComponent, 
+// njegov konstruktor iz dummy podataka for petljom izvlači jedan po jedan 
+// i pravi ih uz pomoć konstruktora klase Wine za svaki prepoznati objekat vina iz dummy podataka, 
+// a zatim ta iskonstruisana vina smešta u niz svoje klase koji je gore već definisan.
 // Vidi HTML ove komponente za dalje komentare
-// changePage je zasad neiplementirana metoda koja će tek dobiti funkcionalnost, ali vredi pomenuti da je ovde definisana samo iz razloga što je potrebna reakcija na EventEmitter iz podkomponente koja određuje prelom strane
+// changePage je zasad neiplementirana metoda koja će tek dobiti funkcionalnost, 
+// ali vredi pomenuti da je ovde definisana samo iz razloga što je potrebna reakcija 
+// na EventEmitter iz podkomponente koja određuje prelom strane
