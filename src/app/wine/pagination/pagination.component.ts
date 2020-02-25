@@ -6,11 +6,14 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 export class PaginationComponent implements OnInit {
   @Input() primljenBrojElemenataPoStranici:number;
+  @Input() primljenUkupanBrojElemenata:number;
   constructor() 
-  {
-    console.log(this.primljenBrojElemenataPoStranici);
-    
+  { 
   }
+
   ngOnInit(): void {
+    // console.log(`Primio sam ${this.primljenBrojElemenataPoStranici} elemenata od winelistKomponente`);
+    // console.log(`Primio sam ${this.primljenUkupanBrojElemenata} elemenata od winelistKomponente`);
+    
   }
 }
