@@ -26,6 +26,11 @@ export class WineListComponent implements OnInit {
     this.brojElemenataPoStranici=p;
     // console.log(`Poslao sam ${this.brojElemenataPoStranici} elemenata paginationKomponenti`);
   }
+  izmeniStranu(p:number)
+  {
+    console.log(`Javljeno mi je ${p}`);
+    
+  }
   ngOnInit(): void {
     this.praviListu(0,limit,1);
   }

@@ -2,7 +2,7 @@
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
       <li class="page-item"><a class="page-link">Previous</a></li>
-      <li class="page-item" *ngFor="let x of nizHtml" ><a class="page-link">{{x}}</a></li>
+      <li class="page-item" *ngFor="let x of nizHtml" (click)="odaberiStranu(x)"><a class="page-link">{{x}}</a></li>
       <li class="page-item"><a class="page-link">Next</a></li>
     </ul>
   </nav>
