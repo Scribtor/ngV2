@@ -1,11 +1,16 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 @Component({
   selector: 'wcellar-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit {
-  constructor() {}
+  @Input() primljenBrojElemenataPoStranici:number;
+  constructor() 
+  {
+    console.log(this.primljenBrojElemenataPoStranici);
+    
+  }
   ngOnInit(): void {
   }
 }

@@ -11,7 +11,7 @@ export let limit = VINA.length;
 
 export class WineListComponent implements OnInit {
   public ListaVina: Wine[]=[];
-  private brojElemenataPoStranici:number=0;
+  public brojElemenataPoStranici:number=0;
   constructor()
   {
   }
@@ -22,6 +22,9 @@ export class WineListComponent implements OnInit {
     {
       this.ListaVina.push(new Wine(VINA[i]));
     }
+    this.brojElemenataPoStranici=this.ListaVina.length;
+    console.log(this.brojElemenataPoStranici);
+    
   }
   ngOnInit(): void {
     this.praviListu(0,limit);
