@@ -2,20 +2,17 @@
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
       <li class="page-item"><a class="page-link">Previous</a></li>
-      <!-- (li.page-item>a.page-link{$})*12 -->
-      <li class="page-item"><a class="page-link">1</a></li>
-      <li class="page-item"><a class="page-link">2</a></li>
-      <li class="page-item"><a class="page-link">3</a></li>
-      <li class="page-item"><a class="page-link">4</a></li>
-      <li class="page-item"><a class="page-link">5</a></li>
-      <li class="page-item"><a class="page-link">6</a></li>
-      <li class="page-item"><a class="page-link">7</a></li>
-      <li class="page-item"><a class="page-link">8</a></li>
-      <li class="page-item"><a class="page-link">9</a></li>
-      <li class="page-item"><a class="page-link">10</a></li>
-      <li class="page-item"><a class="page-link">11</a></li>
-      <li class="page-item"><a class="page-link">12</a></li>
+      <li class="page-item" *ngFor="let x of nizHtml" ><a class="page-link">{{x}}</a></li>
       <li class="page-item"><a class="page-link">Next</a></li>
     </ul>
   </nav>
   </div>
+
+
+  <!-- (li.page-item>a.page-link{$})*12 -->
+  <!-- Šema za ručno generisanje dvanaest li elemenata sa a elementom i odgovarajućim klasama -->
+  <!-- <li class="page-item" *ngFor="let x of nizHtml" ><a class="page-link">{{x}}</a></li> -->
+  <!-- Šema za angular dinamičko generisanja li elemenata sa elementom na osnovu dužine niza "nizHtml"
+  Vidi klasu komponente za detalje -->
+
+      

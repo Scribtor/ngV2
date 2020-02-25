@@ -16,18 +16,18 @@ export class WineListComponent implements OnInit {
   constructor()
   {
   }
-  praviListu(indexStart:number, indexEnd:number)
+  praviListu(indexStart:number, indexEnd:number,p?:number)
   {
     this.ListaVina=[];
     for (let i = indexStart; i < indexEnd; i++) 
     {
       this.ListaVina.push(new Wine(VINA[i]));
     }
-    this.brojElemenataPoStranici=this.ListaVina.length;
+    this.brojElemenataPoStranici=p;
     // console.log(`Poslao sam ${this.brojElemenataPoStranici} elemenata paginationKomponenti`);
   }
   ngOnInit(): void {
-    this.praviListu(0,limit);
+    this.praviListu(0,limit,1);
   }
 
 }
