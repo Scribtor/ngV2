@@ -16,14 +16,14 @@ export class WineListComponent implements OnInit {
   constructor()
   {
   }
-  praviListu(indexStart:number, indexEnd:number,p?:number)
+  praviListu(indexStart:number, indexEnd:number,brElem?:number)
   {
     this.ListaVina=[];
     for (let i = indexStart; i < indexEnd; i++) 
     {
       this.ListaVina.push(new Wine(VINA[i]));
     }
-    this.brojElemenataPoStranici=p;
+    this.brojElemenataPoStranici=brElem;
     // console.log(`Poslao sam ${this.brojElemenataPoStranici} elemenata paginationKomponenti`);
   }
   izmeniStranu(javljenaStranicaPaginacije:number)
@@ -36,6 +36,7 @@ export class WineListComponent implements OnInit {
     this.praviListu(pIndex,pIndex+this.brojElemenataPoStranici,this.brojElemenataPoStranici);
     
   }
+
   ngOnInit(): void {
     this.praviListu(0,this.poslatLimit,5);
   }
