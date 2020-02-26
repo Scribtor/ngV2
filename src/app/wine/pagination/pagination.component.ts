@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import { WineListComponent } from '../wine-list/wine-list.component'
 @Component({
   selector: 'wcellar-pagination',
   templateUrl: './pagination.component.html',
@@ -10,10 +11,12 @@ export class PaginationComponent implements OnInit {
   public brojPrelomnihElemenata:number=this.primljenUkupanBrojElemenata/this.primljenBrojElemenataPoStranici;
   public nizHtml:number[]=[];
   public odabranaStrana:number=0;
-  @Output() javljenaStrana:EventEmitter<number>;
+  @Output() javljenaStranaPaginacije:EventEmitter<number>;
+  @Output() javljenBrojElemenata:EventEmitter<number>;
   constructor() 
   {
-    this.javljenaStrana=new EventEmitter;
+    this.javljenaStranaPaginacije=new EventEmitter;
+    this.javljenBrojElemenata = new EventEmitter;
   }
 
   public nizZaHtml(p:number)
@@ -40,8 +43,15 @@ export class PaginationComponent implements OnInit {
        ) 
     {
       this.odabranaStrana=p;
-      this.javljenaStrana.emit(p);
+      this.javljenaStranaPaginacije.emit(p);
     }
+  }
+  promeniBrojElemenataPoStrani(p:number)
+  {
+    this.primljenBrojElemenataPoStranici=p;
+    this.nizHtml=this.nizZaHtml(Math.ceil(this.dobaviBrojStrana()));
+    this.odaberiStranu(1);
+    this.javljenBrojElemenata.emit(p);
   }
   ngOnInit(): void {
     console.log(`Primio sam ${this.primljenBrojElemenataPoStranici} elemenata od winelistKomponente`);

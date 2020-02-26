@@ -12,11 +12,11 @@ const VINA = [{"_id":1,"name":"CHATEAU DE SAINT COSME","year":2009,"grapes":"Gre
 export class WineListComponent implements OnInit {
   public poslatLimit = VINA.length;
   public ListaVina: Wine[]=[];
-  public brojElemenataPoStranici:number=0;
+  public brojElemenataPoStranici:number=-12345;
   constructor()
   {
   }
-  praviListu(indexStart:number, indexEnd:number,brElem?:number)
+  public praviListu(indexStart:number, indexEnd:number,brElem?:number)
   {
     this.ListaVina=[];
     for (let i = indexStart; i < indexEnd; i++) 
@@ -26,19 +26,30 @@ export class WineListComponent implements OnInit {
     this.brojElemenataPoStranici=brElem;
     // console.log(`Poslao sam ${this.brojElemenataPoStranici} elemenata paginationKomponenti`);
   }
-  izmeniStranu(javljenaStranicaPaginacije:number)
+  public izmeniStranuPaginacije(javljenaStranicaPaginacije:number)
   {
     console.log(`Javljeno mi je ${javljenaStranicaPaginacije}`);
-    let pIndex = (javljenaStranicaPaginacije-1)*this.brojElemenataPoStranici;
+    let pIndex:number=0;
+    pIndex = (javljenaStranicaPaginacije-1)*this.brojElemenataPoStranici;
+    let kIndex:number=0;
+    kIndex = (pIndex) + this.brojElemenataPoStranici;
     console.log(this.brojElemenataPoStranici);
     console.log(javljenaStranicaPaginacije);    
     console.log(pIndex);
-    this.praviListu(pIndex,pIndex+this.brojElemenataPoStranici,this.brojElemenataPoStranici);
+    console.log(kIndex);
+    this.praviListu(pIndex,kIndex,this.brojElemenataPoStranici);
+    console.log(this.ListaVina.length);
     
   }
+  izmeniBrojElemenataPoStrani(p:number)
+  {
+    console.log(`Javljeno da je novi broj elemenata ${p}`);
+    this.brojElemenataPoStranici=p;
 
+  }
   ngOnInit(): void {
-    this.praviListu(0,this.poslatLimit,5);
+    this.praviListu(0,this.poslatLimit,12);
+    
   }
 
 }
