@@ -10,7 +10,7 @@ export class PaginationComponent implements OnInit {
   @Input() primljenUkupanBrojElemenata:number;
   public brojPrelomnihElemenata:number=this.primljenUkupanBrojElemenata/this.primljenBrojElemenataPoStranici;
   public nizHtml:number[]=[];
-  public odabranaStrana:number=0;
+  public odabranaStrana:number;
   @Output() javljenaStranaPaginacije:EventEmitter<number>;
   @Output() javljenBrojElemenata:EventEmitter<number>;
   constructor() 

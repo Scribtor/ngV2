@@ -10,7 +10,7 @@
 // tslint:disable: align
 // tslint:disable: indent
 
-const WINES = 
+export const WINES = 
 [
     {
         id: 1, 
