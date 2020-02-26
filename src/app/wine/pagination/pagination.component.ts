@@ -47,7 +47,7 @@ export class PaginationComponent implements OnInit {
     this.primljenBrojElemenataPoStranici=p;
     // console.log(this.primljenBrojElemenataPoStranici);
     this.nizHtml=this.nizZaHtml(this.dobaviBrojStrana());
-    this.odaberiStranu(1);
+    this.odaberiStranu(1); // Ovde varam, da bi strana preloma uvek bila br1
     this.javljenBrojElemenata.emit(p);
   }
   ngOnInit(): void {
@@ -56,6 +56,7 @@ export class PaginationComponent implements OnInit {
     this.nizHtml=this.nizZaHtml(this.dobaviBrojStrana());
     // console.log(this.nizHtml);
     // console.log(this.dobaviBrojStrana());
+    this.odaberiStranu(this.dobaviBrojStrana());
   }
 }
 // PITANJA:
@@ -116,3 +117,4 @@ export class PaginationComponent implements OnInit {
 
 //  Na samoj inicijalizaciji se loguju prosleđene vrednosti i izračunava atribut "nizHtml" po prvi put
 //  i nakon toga loguje
+//  Klasa se takođe postavlja na tu podrazumevanu jedinicu
