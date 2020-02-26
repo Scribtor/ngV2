@@ -30,3 +30,6 @@ import { PaginationComponent } from './wine/pagination/pagination.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// Ovo je sve sam Angular generisao.
+// Moja jedina izmena je putanja sa koje zove AppModuleComponent 
+// (originalno je bila $cwd/app-routing.module)

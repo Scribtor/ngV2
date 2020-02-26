@@ -7,3 +7,8 @@ export const routes: Routes = [
   {path: 'wines/add', component: EditWineComponent},
   {path: '', redirectTo: '/wines', pathMatch: 'full'}
   ];
+
+  // Vrlo rudimentaran fajl
+  // Importovan je ruter, kao i komponente koje podležu rutiranju
+  // Podešene su adrese koje će se prikazivati kada se komponente smenjuju
+  // Osnovna adresa je naravno prazna, i podešeno je da tada preusmerava na listu vina
