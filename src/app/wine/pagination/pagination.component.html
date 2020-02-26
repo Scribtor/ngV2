@@ -46,4 +46,28 @@
   <!-- .text-center>select[name=sel1][id=sel1]>option[value=$]*12{$} -->
   <!-- Šema za ručno generisanje dvanaest opcija unutar selekta, unutar diva koji koristi bootstrap klase -->
 
-      
+
+  <!-- KOMENTARI -->
+  <!-- prvi div je prekopirana paginacija za zadatak, drugi div je moja sklepana konstrukcija za selekt-->
+  <!-- prvi div nosi sve one lepe butstrep klase koje nas u ovom momentu savršeno ne interesuju -->
+  <!-- prvi div ima efektivno tri dela -->
+
+  <!-- Previous -->
+  <!-- Klik događaj odabira prethodnu stranu  -->
+  <!-- ngIf reguliše da kad je korisnik odabrao prvu stranu paginacije, da se ovaj element ne renderuje -->
+  <!-- ngIf provera se vrši proverom vrednosti atributa "odabranaStrana"-->
+
+  <!-- Current lista -->
+  <!-- ngFor reguliše dinamičko generisanje elemenata paginacije tako što poziva atribut klase "nizHtml" -->
+  <!-- klik događaj poziva metodu "odaberiStranu" sa BAŠ tim elementom koji je korisnik kliknuo -->
+  <!-- dodaje se klasa "active" kada je x jednak odabranoj strani, odnosno na baš toj strani koju korisnik želi -->
+  <!-- taj element paginacije dobija drukčija stilska svojstva. ova klasa pripada butstrepu -->
+  <!-- Interpolacija sve ovo lepo zaokružuje time što će se u svakoj instanci ngFor-a -->
+  <!-- naći vrednost x u baš tom momentu -->
+
+  <!-- Next -->
+  <!-- Klik događaj odabira narednu stranu  -->
+  <!-- ngIf reguliše da kad je korisnik odabrao poslednju stranu paginacije, da se ovaj element ne renderuje -->
+  <!-- ngIf provera se vrši proverom vrednosti atributa "odabranaStrana" spram metode "dobaviBrojStrana" -->
+
+  <!-- drugi div -->
