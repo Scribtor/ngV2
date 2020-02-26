@@ -18,6 +18,6 @@ export class TableComponent implements OnInit {
 
 }
 // Definiši mi atribut u klasi kao javni, sa imenom "wines" i tipom : Niz objekata klase vino
-// Input direktiva "@Input()" je ništa drugo do pokazatelj ANGULAR-u da prilikom izvršavanja ovog koda OČEKUJE da mu je već prilikom poziva HTML-a ove komponente kojoj ovaj TS fajl pripada, prosleđena vrednost za šta god stoji iza "@Input()", najčešće atribut kojem je definisan tip, ili i početna neka vrednost;
-// Input ima čudnu želju da gazi šta god stoji iza njegovog poziva, bez obzira bilo to nešto ili ništa
-// Vidi html ove komponente za zadnji komentar
+// Input direktiva "@Input()" je ništa drugo do pokazatelj ANGULAR-u da prilikom izvršavanja ovog koda OČEKUJE 
+// da mu je već prilikom poziva HTML-a ove komponente kojoj ovaj TS fajl pripada, prosleđena vrednost
+//  za šta god stoji iza "@Input()", najčešće atribut kojem je definisan tip, ili i početna neka vrednost;
