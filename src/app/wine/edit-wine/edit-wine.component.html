@@ -14,8 +14,8 @@
 		<label for="year" class="col-2 col-form-label">Year</label>
 		<div class="col-10">
             <input class="form-control" type="number" id="year" placeholder="Year" name="year"
-             [(ngModel)]="vino.year" required>
-			<small>Notification about year</small>
+             [(ngModel)]="vino.year" #year="ngModel" required>
+			 <small *ngIf="year.touched && year.errors?.required" class="text-danger">This field is required</small>
 		</div>
 	</div>
 
@@ -23,8 +23,8 @@
 		<label for="year" class="col-2 col-form-label">Grapes</label>
 		<div class="col-10">
             <input class="form-control" type="text" id="grapes" placeholder="Grapes" name="grapes"
-             [(ngModel)]="vino.grapes" required>
-			<small>Notification about grapes</small>
+             [(ngModel)]="vino.grapes" #grapes="ngModel" required>
+			 <small *ngIf="grapes.touched && grapes.errors?.required" class="text-danger">This field is required</small>
 		</div>
 	</div>
 
@@ -32,8 +32,8 @@
 		<label for="country" class="col-2 col-form-label">Country</label>
 		<div class="col-10">
             <input class="form-control" type="text" id="country" placeholder="Country" name="country"
-             [(ngModel)]="vino.country" required>
-			<small>Notification about country</small>
+             [(ngModel)]="vino.country" #country="ngModel" required>
+			 <small *ngIf="country.touched && country.errors?.required" class="text-danger">This field is required</small>
 		</div>
 	</div>
 
@@ -41,8 +41,8 @@
 		<label for="region" class="col-2 col-form-label">Region</label>
 		<div class="col-10">
             <input class="form-control" type="text" id="region" placeholder="Region"  name="region"
-             [(ngModel)]="vino.region" required>
-			<small>Notification about region</small>
+             [(ngModel)]="vino.region" #region="ngModel" required>
+			 <small *ngIf="region.touched && region.errors?.required" class="text-danger">This field is required</small>
 		</div>
 	</div>
 
@@ -50,8 +50,8 @@
 		<label for="description" class="col-2 col-form-label">Description</label>
 		<div class="col-10">
             <textarea class="form-control" rows="3" id="description" placeholder="Description" name="description"
-             [(ngModel)]="vino.description" required></textarea>
-			<small>Notification about description</small>
+             [(ngModel)]="vino.description" #description="ngModel" required></textarea>
+			 <small *ngIf="description.touched && description.errors?.required" class="text-danger">This field is required</small>
 		</div>
 	</div>
 
@@ -68,7 +68,7 @@
         (
             label.col2.col-form-label[for="name"]{Name}+
             (
-                .col-10>input.form-control[type="text"][id="name"][placeholder="Name"]+
+                .col-10>input.form-control[type="text"][id="name"][name="name"][placeholder="Name"]+
                 small{Notification about name}
             )
         )

@@ -9,19 +9,18 @@ import { Wine } from '../model/wine.model'
 })
 export class EditWineComponent implements OnInit {
   public vino={
-    _id:13,
-    country:"SRB",
-    description:"Evo neki proteritis od vina",
-    grapes:"TruloUgaženo",
     name:"SeraFino",
-    picture:"",
+    year:1991,
+    grapes:"TruloUgaženo",
+    country:"SRB",
     region:"TruliBalkan",
-    year:1991};
+    description:"Evo neki proteritis od vina",
+    picture:""
+    };
 
   constructor(private rt: Router) { }
   ngOnInit(): void {
     console.log(this.vino);
-    console.log(1);
     
   }
   onSubmit()
