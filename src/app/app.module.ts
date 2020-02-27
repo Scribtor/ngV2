@@ -10,6 +10,7 @@ import { EditWineComponent } from './wine/edit-wine/edit-wine.component';
 import { SearchFormComponent } from './wine/search-form/search-form.component';
 import { TableComponent } from './wine/table/table.component';
 import { PaginationComponent } from './wine/pagination/pagination.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { PaginationComponent } from './wine/pagination/pagination.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
@@ -33,3 +36,5 @@ export class AppModule { }
 // Ovo je sve sam Angular generisao.
 // Moja jedina izmena je putanja sa koje zove AppModuleComponent 
 // (originalno je bila $cwd/app-routing.module)
+
+// FormsModule i ReactiveFormsModule snippeti za angular automatski imaju kao import deklaraciju --- vrlo zgodno

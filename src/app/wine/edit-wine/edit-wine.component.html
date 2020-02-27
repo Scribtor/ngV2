@@ -1,16 +1,20 @@
-<form>
+{{ vino | json }}
+<form (ngSubmit)="onSubmit()" #wineForm="ngForm" novalidate>
 	<div class="form-group row">
 		<label for="name" class="col-2 col-form-label">Name</label>
 		<div class="col-10">
-			<input class="form-control" type="text" id="name" placeholder="Name">
-			<small>Notification about name</small>
+            <input class="form-control" type="text" id="name" placeholder="Name" name="name"
+             [(ngModel)]="vino.name" #name="ngModel" required minlength="2">
+            <small *ngIf="name.touched && name.errors?.required" class="text-danger">Wine name is required</small>
+            <small *ngIf="name.touched && name.errors?.minlength" class="text-danger">Wine name is required, and must be at least 2 characters long</small>
 		</div>
-	</div>
+    </div>
 
 	<div class="form-group row">
 		<label for="year" class="col-2 col-form-label">Year</label>
 		<div class="col-10">
-			<input class="form-control" type="number" id="year" placeholder="Year">
+            <input class="form-control" type="number" id="year" placeholder="Year" name="year"
+             [(ngModel)]="vino.year" required>
 			<small>Notification about year</small>
 		</div>
 	</div>
@@ -18,7 +22,8 @@
 	<div class="form-group row">
 		<label for="year" class="col-2 col-form-label">Grapes</label>
 		<div class="col-10">
-			<input class="form-control" type="text" id="grapes" placeholder="Grapes">
+            <input class="form-control" type="text" id="grapes" placeholder="Grapes" name="grapes"
+             [(ngModel)]="vino.grapes" required>
 			<small>Notification about grapes</small>
 		</div>
 	</div>
@@ -26,7 +31,8 @@
 	<div class="form-group row">
 		<label for="country" class="col-2 col-form-label">Country</label>
 		<div class="col-10">
-			<input class="form-control" type="text" id="country" placeholder="Country">
+            <input class="form-control" type="text" id="country" placeholder="Country" name="country"
+             [(ngModel)]="vino.country" required>
 			<small>Notification about country</small>
 		</div>
 	</div>
@@ -34,7 +40,8 @@
 	<div class="form-group row">
 		<label for="region" class="col-2 col-form-label">Region</label>
 		<div class="col-10">
-			<input class="form-control" type="text" id="region" placeholder="Region">
+            <input class="form-control" type="text" id="region" placeholder="Region"  name="region"
+             [(ngModel)]="vino.region" required>
 			<small>Notification about region</small>
 		</div>
 	</div>
@@ -42,7 +49,90 @@
 	<div class="form-group row">
 		<label for="description" class="col-2 col-form-label">Description</label>
 		<div class="col-10">
-			<textarea class="form-control" rows="3" id="description" placeholder="Description"></textarea>
+            <textarea class="form-control" rows="3" id="description" placeholder="Description" name="description"
+             [(ngModel)]="vino.description" required></textarea>
+			<small>Notification about description</small>
+		</div>
+	</div>
+
+	<div class="form-group row float-right">
+		<div class="col-12">
+            <button class="btn btn-primary " type="submit"
+            [disabled]="wineForm.form.invalid">Submit</button>
+		</div>
+	</div>
+</form>
+<!-- form>
+    (
+        .form-group.row>
+        (
+            label.col2.col-form-label[for="name"]{Name}+
+            (
+                .col-10>input.form-control[type="text"][id="name"][placeholder="Name"]+
+                small{Notification about name}
+            )
+        )
+    )
+            *6
+        +.form-group.row.float-right>.col-12>button.btn.btn-primary[type="submit"]{Submit} -->
+
+        <!-- Kad se sve spoji, ovaj iznad izraz zakomentarisan, generiše celu formu,
+        doduše sa istim imenima za kontrole i tekstom unutar njih, ali barem ubrzava proces kuckanja
+        Emmet abbreviations 4ever! -->
+
+<!-- TEMPLATE DRIVEN OBRAZAC -->
+
+<!-- <form>
+	<div class="form-group row">
+		<label for="name" class="col-2 col-form-label">Name</label>
+		<div class="col-10">
+            <input class="form-control" type="text" id="name" placeholder="Name" name="name"
+             [(ngModel)]="vino.name">
+            <small>Notification about name</small>
+		</div>
+    </div>
+
+	<div class="form-group row">
+		<label for="year" class="col-2 col-form-label">Year</label>
+		<div class="col-10">
+            <input class="form-control" type="number" id="year" placeholder="Year" name="year"
+             [(ngModel)]="vino.year">
+			<small>Notification about year</small>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<label for="year" class="col-2 col-form-label">Grapes</label>
+		<div class="col-10">
+            <input class="form-control" type="text" id="grapes" placeholder="Grapes" name="grapes"
+             [(ngModel)]="vino.grapes">
+			<small>Notification about grapes</small>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<label for="country" class="col-2 col-form-label">Country</label>
+		<div class="col-10">
+            <input class="form-control" type="text" id="country" placeholder="Country" name="country"
+             [(ngModel)]="vino.country">
+			<small>Notification about country</small>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<label for="region" class="col-2 col-form-label">Region</label>
+		<div class="col-10">
+            <input class="form-control" type="text" id="region" placeholder="Region"  name="region"
+             [(ngModel)]="vino.region">
+			<small>Notification about region</small>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<label for="description" class="col-2 col-form-label">Description</label>
+		<div class="col-10">
+            <textarea class="form-control" rows="3" id="description" placeholder="Description" name="description"
+             [(ngModel)]="vino.description"></textarea>
 			<small>Notification about description</small>
 		</div>
 	</div>
@@ -52,4 +142,4 @@
 			<button class="btn btn-primary " type="submit">Submit</button>
 		</div>
 	</div>
-</form>
+</form> -->
