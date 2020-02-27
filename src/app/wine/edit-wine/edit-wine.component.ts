@@ -8,16 +8,17 @@ import { Wine } from '../model/wine.model'
   styleUrls: ['./edit-wine.component.scss']
 })
 export class EditWineComponent implements OnInit {
-  public vino={
-    name:"SeraFino",
-    year:1991,
-    grapes:"TruloUgaženo",
-    country:"SRB",
-    region:"TruliBalkan",
-    description:"Evo neki proteritis od vina",
-    picture:""
-    };
-
+  // public vino={
+  //   name:"SeraFino",
+  //   year:1991,
+  //   grapes:"TruloUgaženo",
+  //   country:"SRB",
+  //   region:"TruliBalkan",
+  //   description:"Evo neki proteritis od vina",
+  //   picture:""
+  //   };
+  // Na greškama se uči. ngModel nije diran, ja nisam samo inicijalizova lokalne templejt promenjive
+  private vino={};
   constructor(private rt: Router) { }
   ngOnInit(): void {
     console.log(this.vino);
