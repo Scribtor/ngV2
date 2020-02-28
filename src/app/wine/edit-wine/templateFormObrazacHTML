@@ -1,0 +1,63 @@
+<!-- TEMPLATE DRIVEN OBRAZAC -->
+
+<!-- <form>
+	<div class="form-group row">
+		<label for="name" class="col-2 col-form-label">Name</label>
+		<div class="col-10">
+            <input class="form-control" type="text" id="name" placeholder="Name" name="name"
+             [(ngModel)]="vino.name">
+            <small>Notification about name</small>
+		</div>
+    </div>
+
+	<div class="form-group row">
+		<label for="year" class="col-2 col-form-label">Year</label>
+		<div class="col-10">
+            <input class="form-control" type="number" id="year" placeholder="Year" name="year"
+             [(ngModel)]="vino.year">
+			<small>Notification about year</small>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<label for="year" class="col-2 col-form-label">Grapes</label>
+		<div class="col-10">
+            <input class="form-control" type="text" id="grapes" placeholder="Grapes" name="grapes"
+             [(ngModel)]="vino.grapes">
+			<small>Notification about grapes</small>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<label for="country" class="col-2 col-form-label">Country</label>
+		<div class="col-10">
+            <input class="form-control" type="text" id="country" placeholder="Country" name="country"
+             [(ngModel)]="vino.country">
+			<small>Notification about country</small>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<label for="region" class="col-2 col-form-label">Region</label>
+		<div class="col-10">
+            <input class="form-control" type="text" id="region" placeholder="Region"  name="region"
+             [(ngModel)]="vino.region">
+			<small>Notification about region</small>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<label for="description" class="col-2 col-form-label">Description</label>
+		<div class="col-10">
+            <textarea class="form-control" rows="3" id="description" placeholder="Description" name="description"
+             [(ngModel)]="vino.description"></textarea>
+			<small>Notification about description</small>
+		</div>
+	</div>
+
+	<div class="form-group row float-right">
+		<div class="col-12">
+			<button class="btn btn-primary " type="submit">Submit</button>
+		</div>
+	</div>
+</form> -->

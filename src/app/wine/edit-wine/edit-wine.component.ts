@@ -30,6 +30,17 @@ export class EditWineComponent implements OnInit {
     console.log(JSON.stringify(this.vino));
     
   }
-
+  makeForm()
+  {
+    this.vinoForm=this.fb.group(
+      {
+        ime:'',
+        godina:null,
+        sorta:'',
+        zemlja:'',
+        region:'',
+        opis:''
+      })
+  }
 }
 // Importovan ruter zbog navigacije
