@@ -28,7 +28,7 @@ export class EditWineComponent implements OnInit {
   }
   ngOnInit(): void {
     // console.log(this.vino);
-    console.log(this.customValidity('pera1Dc'));
+    console.log(this.hasNumUpLow('PERA1Dc'));
   }
   onSubmit()
   {
@@ -52,54 +52,25 @@ export class EditWineComponent implements OnInit {
         opis:['',[Validators.required]]
       })
   }
-  customValidity(p:string):boolean
+  hasNumUpLow(p:string):boolean
   {
     let flagNum:boolean=false;
     let flagUp:boolean=false;
     let flagLow:boolean=false;
-    console.log(p);
     for (let i = 0; i < p.length; i++) 
     {
-      let x = parseInt(p[i]);
-      console.log(x);
-      if (x)
-      {
+      let x = Number(p[i])
+      if (x) {
         flagNum=true;
-        break;
-      }
-    }
-    if (!flagNum) { return false;
-    }
-    for (let j = 0; j < p.length; j++) 
-    {
-      if (p[j]===p[j].toUpperCase()) 
+      } else if (p[i]==p[i].toUpperCase())
       {
-        if (Number(p[j])===Number(p[j])) {
-          continue;
-        }
         flagUp=true;
-        break;
       }
-    }
-    console.log(flagUp);
-    if (!flagUp) { return false;}
-    for (let k = 0; k < p.length; k++) 
-    {
-      if (p[k]===p[k].toLowerCase()) 
+      else if(p[i]===p[i].toLowerCase())
       {
-        if (Number(p[k])===Number(p[k])) {
-          continue;
-        }
         flagLow=true;
-        break;
       }
     }
-    console.log(flagLow);
-    
-    if (!flagLow) {return false;}
-    console.log(flagNum);
-    console.log(flagUp);
-    console.log(flagLow);
     return flagNum && flagUp && flagLow;
   }
 }
