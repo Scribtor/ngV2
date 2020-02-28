@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Wine } from '../model/wine.model';
-import { FormGroup,FormBuilder } from "@angular/forms";
+import { FormGroup,FormBuilder, Validators, NG_VALIDATORS } from "@angular/forms";
 @Component({
   selector: 'wcellar-edit-wine',
   templateUrl: './edit-wine.component.html',
@@ -23,6 +23,7 @@ export class EditWineComponent implements OnInit {
   constructor(private rt: Router,private fb:FormBuilder) 
   {
     this.makeForm();
+    const vl=new Validators();
   }
   ngOnInit(): void {
     console.log(this.vino);
@@ -40,8 +41,8 @@ export class EditWineComponent implements OnInit {
   {
     this.vinoForm=this.fb.group(
       {
-        ime:'',
-        godina:null,
+        ime:['',[Validators.required,Validators.minLength(2)]],
+        godina:['',[Validators.min(1900),Validators.max(2020),(Validators.minLength(1)&&Validators.maxLength(5))]],
         sorta:'',
         zemlja:'',
         region:'',
