@@ -1,5 +1,15 @@
-{{ vino | json }}
-<form [formGroup]="vinoForm">
+<br>
+
+{{ vinoForm.value | json }}
+<br>
+<br>
+<br>
+
+{{ vinoForm.status | json }}
+<br>
+<br>
+
+<form [formGroup]="vinoForm" (submit)="onSubmit()">
 	<div class="form-group row">
 		<label for="name" class="col-2 col-form-label">Name</label>
 		<div class="col-10">
@@ -49,32 +59,20 @@
 	<div class="form-group row">
 		<label for="description" class="col-2 col-form-label">Description</label>
 		<div class="col-10">
-			<textarea class="form-control" rows="3" id="description" placeholder="Description" name="description" required></textarea
-				formControlName="opis">
+			<textarea class="form-control" rows="3" id="description" placeholder="Description" name="description" required
+			formControlName="opis"></textarea>
 			 <!-- <small>This field is required</small> -->
 		</div>
 	</div>
 
 	<div class="form-group row float-right">
 		<div class="col-12">
-            <button class="btn btn-primary " type="submit">Submit</button>
+			<button class="btn btn-primary " type="submit"
+			[disabled]="vinoForm.invalid">Submit</button>
 		</div>
 	</div>
-</form>
-<!-- form>
-    (
-        .form-group.row>
-        (
-            label.col2.col-form-label[for="name"]{Name}+
-            (
-                .col-10>input.form-control[type="text"][id="name"][name="name"][placeholder="Name"]+
-                small{Notification about name}
-            )
-        )
-    )
-            *6
-        +.form-group.row.float-right>.col-12>button.btn.btn-primary[type="submit"]{Submit} -->
 
-        <!-- Kad se sve spoji, ovaj iznad izraz zakomentarisan, generiše celu formu,
-        doduše sa istim imenima za kontrole i tekstom unutar njih, ali barem ubrzava proces kuckanja
-        Emmet abbreviations 4ever! -->
+	<!-- "form>(.form-group.row>(label.col2.col-form-label[for="name"]{Name}+(.col-10>input.form-control[type="text"][id="name"][name="name"][placeholder="Name"]+small{Notification about name})))*6+.form-group.row.float-right>.col-12>button.btn.btn-primary[type="submit"]{Submit}" -->
+<!-- Kad se sve spoji, ovaj iznad izraz zakomentarisan, generiše celu formu,
+doduše sa istim imenima za kontrole i tekstom unutar njih, ali barem ubrzava proces kuckanja
+Emmet abbreviations 4ever! -->

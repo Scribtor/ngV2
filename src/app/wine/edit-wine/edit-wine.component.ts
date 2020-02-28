@@ -20,14 +20,20 @@ export class EditWineComponent implements OnInit {
   // Na greškama se uči. ngModel nije diran, ja nisam samo inicijalizova lokalne templejt promenjive
   public vino:Wine;
   public vinoForm:FormGroup;
-  constructor(private rt: Router,private fb:FormBuilder) { }
+  constructor(private rt: Router,private fb:FormBuilder) 
+  {
+    this.makeForm();
+  }
   ngOnInit(): void {
     console.log(this.vino);
     
   }
   onSubmit()
   {
-    console.log(JSON.stringify(this.vino));
+    // console.log(JSON.stringify(this.vino));
+    console.log(this.vinoForm.value);
+    this.vinoForm.reset();
+    
     
   }
   makeForm()
