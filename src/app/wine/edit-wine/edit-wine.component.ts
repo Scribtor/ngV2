@@ -23,11 +23,12 @@ export class EditWineComponent implements OnInit {
   constructor(private rt: Router,private fb:FormBuilder) 
   {
     this.makeForm();
-    const vl=new Validators();
+    
+    // Jel mogu validatore da koristim skraćeno, ili moram svaki put da kucam ručno?
   }
   ngOnInit(): void {
     console.log(this.vino);
-    
+    console.log(this.customValidity('pera1D'));
   }
   onSubmit()
   {
@@ -36,18 +37,48 @@ export class EditWineComponent implements OnInit {
     this.vinoForm.reset();
     
     
+    
+    
   }
   makeForm()
   {
     this.vinoForm=this.fb.group(
       {
         ime:['',[Validators.required,Validators.minLength(2)]],
-        godina:['',[Validators.min(1900),Validators.max(2020),(Validators.minLength(1)&&Validators.maxLength(5))]],
-        sorta:'',
-        zemlja:'',
-        region:'',
-        opis:''
+        godina:['',[Validators.min(1900),Validators.max(2020)]],
+        sorta:['',[Validators.required]],
+        zemlja:['',[Validators.required]],
+        region:['',[Validators.required]],
+        opis:['',[Validators.required]]
       })
+  }
+  customValidity(p:string):boolean
+  {
+    let flagNum:boolean=false;
+    let flagUp:boolean=false;
+    let flagLow:boolean=false;
+    for (let i = 0; i < p.length; i++) 
+    {
+      if (p[i] == typeof Number)
+      {
+        flagNum=true;
+      }
+    }
+    for (let j = 0; j < p.length; j++) 
+    {
+      if (p[j]===p[j].toUpperCase()) 
+      {
+        flagUp=true;
+      }
+    }
+    for (let k = 0; k < p.length; k++) 
+    {
+      if (p[k]===p[k].toLowerCase()) 
+      {
+        flagLow=true;
+      }
+    }
+    return flagNum && flagUp && flagLow;
   }
 }
 // Importovan ruter zbog navigacije
