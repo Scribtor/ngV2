@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Wine } from '../model/wine.model'
-
+import { Wine } from '../model/wine.model';
+import { FormGroup,FormBuilder } from "@angular/forms";
 @Component({
   selector: 'wcellar-edit-wine',
   templateUrl: './edit-wine.component.html',
@@ -18,8 +18,9 @@ export class EditWineComponent implements OnInit {
   //   picture:""
   //   };
   // Na greškama se uči. ngModel nije diran, ja nisam samo inicijalizova lokalne templejt promenjive
-  public vino={};
-  constructor(private rt: Router) { }
+  private vino:Wine;
+  private vinoForm:FormGroup;
+  constructor(private rt: Router,private fb:FormBuilder) { }
   ngOnInit(): void {
     console.log(this.vino);
     
