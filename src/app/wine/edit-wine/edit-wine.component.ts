@@ -28,7 +28,7 @@ export class EditWineComponent implements OnInit {
   }
   ngOnInit(): void {
     console.log(this.vino);
-    console.log(this.customValidity('pera1D'));
+    console.log(this.customValidity('peraa1D'));
   }
   onSubmit()
   {
@@ -59,7 +59,7 @@ export class EditWineComponent implements OnInit {
     let flagLow:boolean=false;
     for (let i = 0; i < p.length; i++) 
     {
-      if (p[i] == typeof Number)
+      if (Number(p[i]) === Number(p[i]))
       {
         flagNum=true;
       }
@@ -78,6 +78,12 @@ export class EditWineComponent implements OnInit {
         flagLow=true;
       }
     }
+    console.log(flagNum);
+    console.log(flagUp);
+    console.log(flagLow);
+    
+    
+    
     return flagNum && flagUp && flagLow;
   }
 }
