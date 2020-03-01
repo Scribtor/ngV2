@@ -1,0 +1,33 @@
+<!-- Redom: -->
+<!-- Interpolacijom, za vreme razvoja, ispisujemo vrednosti objekta za koji je forma vezana -->
+<!-- U novom redu, interpolacijom ispisujemo stanje forme -->
+<!-- Sama HTML struktura je prepisana iz unapred pripremljenih izvora, dok su ng elementi dodati naknadno -->
+<!-- <form [formGroup]="vinoForm" (submit)="onSubmit()" novalidate> -->
+<!-- formGroup je tip promenjive, ovoj formi kažemo da se veže za formGroup tip promenjive koji se
+u našem TS fajlu zove "vinoForm" -->
+<!-- Ovo je zgodno, naročito kada na jednoj strani može da se dogodi da se prikazuje više formi -->
+<!-- Ili čak, da se unutar jedne komponente mogu smenjivati više formi, a vezane su za jedan TS fajl -->
+<!-- na događaj submit pozivamo metodu "onSubmit()" iz TS-a i to je to -->
+<!-- novalidate - je atribut koji HTML-u govori da on ništa ne treba da validira -->
+<!-- Postavio sam validaciju preko angular-a pa HTML-ovu isključujem da ne bi dolazilo do konflikata -->
+<!-- formControlName="name" i name="name" su neophodni za rad forme. -->
+<!-- Prvo što svaka angular forma mora imati da bi radila je da SVAKA kontrola koju želimo da veženo -->
+<!-- preko formGroup-a ima atribut "name". Ovo znači da možemo imati 10 kontrola, ali da samo 3 vezujemo -->
+<!-- U praksi, samo te tri koje vezujemo moraju imati atribut "name" i ng atribut "formControlName" -->
+<!-- koji će odgovarati vrednosti atributa "name" za tu kontrolu -->
+<!-- On zaista NE MORA da bude identičan po imenu sa modelom podataka koji će se na kraju menjati -->
+<!-- ali u tom slučaju biće neophodno da prilikom submit-a se kontrole formgroup-e NAMAPIRAJU -->
+<!-- na prave vrednosti modela podataka, a NIKO to ne želi da radi -->
+<!-- na kontroli za region sam dodao posebnu validaciju, da polje mora da sadrži 1 broj,veliko i malo slovo-->
+<!-- čak sam stavio da se šalju dve različite poruke za grešku u small tag-u u zavisnosti od toga -->
+<!-- da li je polje samo prazno, ili nije ispunilo uslov validacije -->
+<!-- Pored ovoga, na zadnjem divu ima dva dugmeta, jedno revert koje prazni sve vrednosti i vraća formu -->
+<!-- u početno stanje, i dugme submit koje zasad samo prosleđuje pokupljene vrednosti formGroup-e -->
+<!-- i ispisuje ih na konzolu, a kasnije će biti implementirano još detalja -->
+<!-- Po tekstu zadatka, dugme submit je onemogućeno dokle god forma nije ispravna, ali pošto ne mogu -->
+<!-- bez custom validatora da vežem specijalnu validaciju za stanje forme, onda logički vezujem -->
+<!-- vrednost "disabled" atributa tog dugmeta, za logički rezultat provere stanja forme -->
+<!-- i rezultat provere posebne metode koja proverava validaciju, na NAJBRŽI mogući način -->
+<!-- Svi izrazi unutar ngIf-a su zapravo metode ili osobine formGroup objekta koje se mogu  -->
+<!-- proveravati i čitati u TS fajlu, a onda kada ih istestiramo u konzoli, možemo ih samo baciti -->
+<!-- pod navodnike u html-u i koristiti za ono što nam treba -->

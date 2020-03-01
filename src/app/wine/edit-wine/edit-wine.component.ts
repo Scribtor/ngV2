@@ -24,11 +24,12 @@ export class EditWineComponent implements OnInit {
   constructor(private rt: Router,private fb:FormBuilder) 
   {
     this.makeForm();
-    
     // Jel mogu validatore da koristim skraćeno, ili moram svaki put da kucam ručno?
   }
   ngOnInit(): void {
     // console.log(this.vino);
+    this.vinoForm.reset();
+    this.vino=this.vinoForm.value;
     console.log(this.hasNumUpLow('PERA1C'));
     console.log(this.vinoForm.status);
         
