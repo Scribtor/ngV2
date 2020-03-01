@@ -147,14 +147,14 @@ export const WINES =
  
  export class Wine
 {
-    private _id:number;
-    private name:string;
-    private year:number;
-    private grapes:string;
-    private country:string;
-    private region:string;
-    private description:string;
-    private picture:string;
+    private _id: number;
+    private _name: string;
+    private _year: number;
+    private _grapes: string;
+    private _country: string
+    private _region: string
+    private _description: string
+    private _picture: string
 
     
     constructor(obj?: any) 
@@ -167,7 +167,70 @@ export const WINES =
 		this.region = obj && obj.region || null;
 		this.description = obj && obj.description || null;
 		this.picture = obj && obj.picture || null;
-	}
-
- 
+    }
+    
+    public get id (): number
+     {
+         return this._id
+     }
+     public set id ( value: number )
+     {
+         this._id = value
+     }
+     public get name (): string
+     {
+         return this._name
+     }
+     public set name ( value: string )
+     {
+         this._name = value
+     }
+     public get year (): number
+     {
+         return this._year
+     }
+     public set year ( value: number )
+     {
+         this._year = value
+     }
+     public get grapes (): string
+     {
+         return this._grapes
+     }
+     public set grapes ( value: string )
+     {
+         this._grapes = value
+     }
+     public get country (): string
+     {
+         return this._country
+     }
+     public set country ( value: string )
+     {
+         this._country = value
+     }
+     public get region (): string
+     {
+         return this._region
+     }
+     public set region ( value: string )
+     {
+         this._region = value
+     }
+     public get description (): string
+     {
+         return this._description
+     }
+     public set description ( value: string )
+     {
+         this._description = value
+     }
+     public get picture (): string
+     {
+         return this._picture
+     }
+     public set picture ( value: string )
+     {
+         this._picture = value
+     }
 }

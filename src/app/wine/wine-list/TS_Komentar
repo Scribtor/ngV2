@@ -80,3 +80,13 @@ prilikom inicijalizacije pozovi metodu praviListu() i prosledi sledeće argument
 2. Krajnji indeks = vrednost atributa "poslatLimit" koji odgovara dužini "const VINA" na početku fajla;
 3. BrojElemenata = vrednost atributa "poslatLimit"; Hoćemo da prikažemo sve elemente inicijalno; 
 */
+  // public praviListu(indexStart:number, indexEnd:number,brElem:number)
+  // {
+  //   this.ListaVina=[];
+  //   for (let i = indexStart; i < indexEnd; i++) 
+  //   {
+  //     this.ListaVina.push(new Wine(VINA[i]));
+  //   }
+  //   this.brojElemenataPoStranici=brElem;
+  //   // console.log(`Poslao sam ${this.brojElemenataPoStranici} elemenata paginationKomponenti`);
+  // }
