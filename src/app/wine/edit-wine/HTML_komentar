@@ -31,3 +31,6 @@ u našem TS fajlu zove "vinoForm" -->
 <!-- Svi izrazi unutar ngIf-a su zapravo metode ili osobine formGroup objekta koje se mogu  -->
 <!-- proveravati i čitati u TS fajlu, a onda kada ih istestiramo u konzoli, možemo ih samo baciti -->
 <!-- pod navodnike u html-u i koristiti za ono što nam treba -->
+<!-- Budući da nama atribut kontrole zavisi od povratne vrednosti metode hasNumUpLow, nama treba kontra -->
+<!-- vrednost od one koju vraća metoda, da bi funkcionalnost bila ispravna -->
+<!-- Pogledaj logički izraze u html-u pa će biti malo jasnije -->

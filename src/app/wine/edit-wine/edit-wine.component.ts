@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { Wine } from '../model/wine.model';
 import { FormGroup,FormBuilder, Validators } from "@angular/forms";
 import { Wine } from '../model/wine.model'
 @Component({
@@ -30,9 +29,8 @@ export class EditWineComponent implements OnInit {
     // console.log(this.vino);
     this.vinoForm.reset();
     this.vino=this.vinoForm.value;
-    console.log(this.hasNumUpLow('PERA1C'));
-    console.log(this.vinoForm.status);
-        
+    // console.log(this.hasNumUpLow('PERA1C'));
+    // console.log(this.vinoForm.status);
   }
   onSubmit()
   {
