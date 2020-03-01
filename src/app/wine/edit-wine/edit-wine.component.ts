@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Wine } from '../model/wine.model';
-import { FormGroup,FormBuilder, Validators, NG_VALIDATORS } from "@angular/forms";
+// import { Wine } from '../model/wine.model';
+import { FormGroup,FormBuilder, Validators } from "@angular/forms";
+import { Wine } from '../model/wine.model'
 @Component({
   selector: 'wcellar-edit-wine',
   templateUrl: './edit-wine.component.html',
@@ -28,50 +29,68 @@ export class EditWineComponent implements OnInit {
   }
   ngOnInit(): void {
     // console.log(this.vino);
-    console.log(this.hasNumUpLow('PERA1Dc'));
+    console.log(this.hasNumUpLow('PERA1C'));
+    console.log(this.vinoForm.status);
+        
   }
   onSubmit()
   {
+    this.vino=this.vinoForm.value;
     // console.log(JSON.stringify(this.vino));
-    console.log(this.vinoForm.value);
+    console.log(this.vino);
     this.vinoForm.reset();
-    
-    
-    
-    
+  }
+  onRevert()
+  {
+    this.vinoForm.patchValue(this.vino);
   }
   makeForm()
   {
     this.vinoForm=this.fb.group(
       {
-        ime:['',[Validators.required,Validators.minLength(2)]],
-        godina:['',[Validators.min(1900),Validators.max(2020)]],
-        sorta:['',[Validators.required]],
-        zemlja:['',[Validators.required]],
+        name:['',[Validators.required,Validators.minLength(2)]],
+        year:['',[Validators.required,Validators.min(1900),Validators.max(2020)]],
+        grapes:['',[Validators.required]],
+        country:['',[Validators.required]],
         region:['',[Validators.required]],
-        opis:['',[Validators.required]]
+        description:['',[Validators.required]]
       })
   }
   hasNumUpLow(p:string):boolean
   {
+    if (p==null || p=="") {
+      return false;
+    }
     let flagNum:boolean=false;
     let flagUp:boolean=false;
     let flagLow:boolean=false;
+    
     for (let i = 0; i < p.length; i++) 
     {
       let x = Number(p[i])
       if (x) {
         flagNum=true;
+        continue;
       } else if (p[i]==p[i].toUpperCase())
       {
         flagUp=true;
+        continue;
       }
       else if(p[i]===p[i].toLowerCase())
       {
         flagLow=true;
+        continue;
       }
     }
     return flagNum && flagUp && flagLow;
   }
+  // refreshBtn()
+  // {
+  //   let btn:HTMLButtonElement=document.getElementById('btn1') as HTMLButtonElement;
+  //   console.log(this.vinoForm.invalid);
+  //   console.log(this.hasNumUpLow(this.vinoForm.controls.region.value));
+  //   console.log(this.vinoForm.controls.region.value);
+  //   btn.disabled=!(this.hasNumUpLow(this.vinoForm.controls.region.value))||this.vinoForm.invalid;
+  // }
 }
 // Importovan ruter zbog navigacije

@@ -10,8 +10,7 @@ import { EditWineComponent } from './wine/edit-wine/edit-wine.component';
 import { SearchFormComponent } from './wine/search-form/search-form.component';
 import { TableComponent } from './wine/table/table.component';
 import { PaginationComponent } from './wine/pagination/pagination.component';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({

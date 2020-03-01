@@ -1,20 +1,11 @@
-<br>
-
-{{ vinoForm.value | json }}
-<br>
-<br>
-<br>
-
-{{ vinoForm.status | json }}
-<br>
-<br>
-
-<form [formGroup]="vinoForm" (submit)="onSubmit()">
+<p>{{ vinoForm.value | json }}</p>
+<p>{{ vinoForm.status | json }}</p>
+<form [formGroup]="vinoForm" (submit)="onSubmit()" novalidate>
 	<div class="form-group row">
 		<label for="name" class="col-2 col-form-label">Name</label>
 		<div class="col-10">
 			<input class="form-control" type="text" id="name" placeholder="Name" name="name"
-			formControlName="ime">
+			formControlName="name">
             <!-- <small>Wine name is required</small> -->
             <!-- <small>Wine name is required, and must be at least 2 characters long</small> -->
 		</div>
@@ -23,8 +14,8 @@
 	<div class="form-group row">
 		<label for="year" class="col-2 col-form-label">Year</label>
 		<div class="col-10">
-			<input class="form-control" type="number" id="year" placeholder="Year" name="year" required
-			formControlName="godina">
+			<input class="form-control" type="number" id="year" placeholder="Year" name="year"
+			formControlName="year">
 			 <!-- <small>This field is required</small> -->
 		</div>
 	</div>
@@ -32,8 +23,8 @@
 	<div class="form-group row">
 		<label for="year" class="col-2 col-form-label">Grapes</label>
 		<div class="col-10">
-			<input class="form-control" type="text" id="grapes" placeholder="Grapes" name="grapes" required
-			formControlName="sorta">
+			<input class="form-control" type="text" id="grapes" placeholder="Grapes" name="grapes"
+			formControlName="grapes">
 			 <!-- <small>This field is required</small> -->
 		</div>
 	</div>
@@ -41,8 +32,8 @@
 	<div class="form-group row">
 		<label for="country" class="col-2 col-form-label">Country</label>
 		<div class="col-10">
-			<input class="form-control" type="text" id="country" placeholder="Country" name="country" required
-			formControlName="zemlja">
+			<input class="form-control" type="text" id="country" placeholder="Country" name="country"
+			formControlName="country">
 			 <!-- <small>This field is required</small> -->
 		</div>
 	</div>
@@ -50,25 +41,44 @@
 	<div class="form-group row">
 		<label for="region" class="col-2 col-form-label">Region</label>
 		<div class="col-10">
-			<input class="form-control" type="text" id="region" placeholder="Region"  name="region" required
+			<input class="form-control" type="password" id="region" placeholder="Region"  name="region"
 			formControlName="region">
-			 <small class="text-danger" *ngIf="vinoForm.controls.region.touched && !hasNumUpLow(vinoForm.controls.region.value)">This field is required</small>
+			 <small class="text-danger" *ngIf="vinoForm.controls.region.touched && vinoForm.controls.region.errors?.required">This field is required</small>
+			 <br>
+			 <small class="text-danger" *ngIf="vinoForm.controls.region.touched && !hasNumUpLow(vinoForm.controls.region.value)">This field must contain a lowercase, uppercase and a number</small>
 		</div>
 	</div>
+
+	<!-- <div class="form-group row">
+		<label for="Rregion" class="col-2 col-form-label">Retype region</label>
+		<div class="col-10">
+			<input class="form-control" type="password" id="Rregion" placeholder="Retype region"  name="Rregion" required
+			formControlName="Rregion">
+			 <small class="text-danger" 
+			 *ngIf="vinoForm.controls.Rregion.touched && 
+			 vinoForm.controls.Rregion.errors?.required"
+			 >This field is required</small>
+			 <br>
+			 <small class="text-danger" 
+			 *ngIf="vinoForm.controls.Rregion.touched && !(vinoForm.controls.Rregion.value===vinoForm.controls.region.value)"
+			 >Fields: Region and Retype region must be equal</small>
+		</div>
+	</div> -->
 
 	<div class="form-group row">
 		<label for="description" class="col-2 col-form-label">Description</label>
 		<div class="col-10">
 			<textarea class="form-control" rows="3" id="description" placeholder="Description" name="description" required
-			formControlName="opis"></textarea>
+			formControlName="description"></textarea>
 			 <!-- <small>This field is required</small> -->
 		</div>
 	</div>
-
 	<div class="form-group row float-right">
-		<div class="col-12">
-			<button class="btn btn-primary " type="submit"
-			[disabled]="vinoForm.invalid">Submit</button>
+		<div class="col-6">
+			<button class="btn btn-primary " (click)="onRevert()" type="button">Revert</button>
+		</div>
+		<div class="col-6">
+			<button class="btn btn-primary " id=btn1 type="submit" [disabled]="!(this.hasNumUpLow(this.vinoForm.controls.region.value))||this.vinoForm.invalid">Submit</button>
 		</div>
 	</div>
 
