@@ -24,7 +24,8 @@
     "zone.js": "~0.10.2",
     "jquery": "latest",
     "popper.js": "latest",
-    "bootstrap": "latest"
+    "bootstrap": "latest",
+    "font-awesome": "latest"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.2",
