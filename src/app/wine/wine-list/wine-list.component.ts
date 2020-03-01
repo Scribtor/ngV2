@@ -54,7 +54,6 @@ export class WineListComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.ws.praviListu(0,this.poslatLimit,12);
     this.ListaVina=this.ws.vratiSve();   
     this.brojElemenataPoStranici=this.ws.servBrElem;
   }
