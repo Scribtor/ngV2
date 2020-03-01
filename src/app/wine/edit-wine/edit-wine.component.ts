@@ -43,7 +43,7 @@ export class EditWineComponent implements OnInit {
   }
   onRevert()
   {
-    this.vinoForm.patchValue(this.vino);
+    this.vinoForm.reset();
   }
   makeForm()
   {
