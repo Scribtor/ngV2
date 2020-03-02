@@ -190,11 +190,4 @@ export class WineService {
     VINA.push(novo);
   }
 }
-// Servis je ništa drugo do posebna TS klasa koja sadrži svu Božiju logiku koja ne treba da stoji 
-// u klasi komponenata
-// Servis takođe služi da komponente koje nemaju odnos direktno roditelj-dete da mogu da komuniciraju
-// Injekcijom zavisnosti, prosleđivanjem klase ovog servisa u svoj konstruktor, te komponente
-// mogu da koriste sve metode servisa
-// Poslednju liniju koda u metodi dodajVino(:Wine) sam napisao ne bi li "dinamički" u promenjivoj VINA
-// imao te nove objekte vina dodate. Ovo se resetuje na svakom refresh-u, i zameniću kada dodam httpclient
-// u poslednjem delu izrade ovog projekta
+

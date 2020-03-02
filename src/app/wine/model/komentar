@@ -23,3 +23,4 @@
 // U ovom delu zadatka se postavlja model podataka za klasu vina koja će se kasnije koristiti.
 //  Vidi wine-list komponentu za dalje.
 /**/
+// Dodati su get-set pristupne metode, i promenjena su imena atributa, i u modelu i u "fajlu" var VINA

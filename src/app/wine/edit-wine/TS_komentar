@@ -51,3 +51,7 @@
     god se SVI uslovi njegovog "disabled" atributa ne ispune, a tu uključujem i drugu metodu koja proverava
     baš to
 */
+/*
+Jedina izmena je injekcija u konstruktoru, i poziv dvema metodama, jedna wineService-u, druga Router-u
+jer tako je zahtevano po zadatku
+*/

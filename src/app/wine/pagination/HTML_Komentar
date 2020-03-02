@@ -42,3 +42,5 @@
   <!-- Šema za angular dinamičko generisanja li elemenata sa elementom na osnovu dužine niza "nizHtml" -->
   <!-- .text-center>select[name=sel1][id=sel1]>option[value=$]*12{$} -->
   <!-- Šema za ručno generisanje dvanaest opcija unutar selekta, unutar diva koji koristi bootstrap klase -->
+
+  <!-- Dodat servis zasad ne utiče na sastav ovog fajla -->

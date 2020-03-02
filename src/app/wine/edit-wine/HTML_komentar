@@ -34,3 +34,6 @@ u našem TS fajlu zove "vinoForm" -->
 <!-- Budući da nama atribut kontrole zavisi od povratne vrednosti metode hasNumUpLow, nama treba kontra -->
 <!-- vrednost od one koju vraća metoda, da bi funkcionalnost bila ispravna -->
 <!-- Pogledaj logički izraze u html-u pa će biti malo jasnije -->
+
+
+<!-- Dodavanje servisa ne utiče na sadržaj ovog fajla -->

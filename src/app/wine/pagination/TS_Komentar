@@ -57,3 +57,4 @@
 //  Na samoj inicijalizaciji se loguju prosleđene vrednosti i izračunava atribut "nizHtml" po prvi put
 //  i nakon toga loguje
 //  Klasa se takođe postavlja na tu podrazumevanu jedinicu
+// Dodavanje servisa zasad ne utiče na promenu ove komponente

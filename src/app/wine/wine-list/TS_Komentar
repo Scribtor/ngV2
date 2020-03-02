@@ -90,3 +90,6 @@ prilikom inicijalizacije pozovi metodu praviListu() i prosledi sledeće argument
   //   this.brojElemenataPoStranici=brElem;
   //   // console.log(`Poslao sam ${this.brojElemenataPoStranici} elemenata paginationKomponenti`);
   // }
+  //
+  //
+  // Metode i promenjive prepravljene tako da koriste wineService, dostupan zbog injekcije zavisnosti
