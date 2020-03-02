@@ -4,8 +4,8 @@
 	<div class="form-group row">
 		<label for="name" class="col-2 col-form-label">Name</label>
 		<div class="col-10">
-			<input class="form-control" type="text" id="name" placeholder="Name" name="name"
-			formControlName="name">
+			<input class="form-control" type="text" id="name" placeholder="Name" name="_name"
+			formControlName="_name">
             <!-- <small>Wine name is required</small> -->
             <!-- <small>Wine name is required, and must be at least 2 characters long</small> -->
 		</div>
@@ -14,8 +14,8 @@
 	<div class="form-group row">
 		<label for="year" class="col-2 col-form-label">Year</label>
 		<div class="col-10">
-			<input class="form-control" type="number" id="year" placeholder="Year" name="year"
-			formControlName="year">
+			<input class="form-control" type="number" id="year" placeholder="Year" name="_year"
+			formControlName="_year">
 			 <!-- <small>This field is required</small> -->
 		</div>
 	</div>
@@ -23,8 +23,8 @@
 	<div class="form-group row">
 		<label for="year" class="col-2 col-form-label">Grapes</label>
 		<div class="col-10">
-			<input class="form-control" type="text" id="grapes" placeholder="Grapes" name="grapes"
-			formControlName="grapes">
+			<input class="form-control" type="text" id="grapes" placeholder="Grapes" name="_grapes"
+			formControlName="_grapes">
 			 <!-- <small>This field is required</small> -->
 		</div>
 	</div>
@@ -32,8 +32,8 @@
 	<div class="form-group row">
 		<label for="country" class="col-2 col-form-label">Country</label>
 		<div class="col-10">
-			<input class="form-control" type="text" id="country" placeholder="Country" name="country"
-			formControlName="country">
+			<input class="form-control" type="text" id="country" placeholder="Country" name="_country"
+			formControlName="_country">
 			 <!-- <small>This field is required</small> -->
 		</div>
 	</div>
@@ -41,11 +41,11 @@
 	<div class="form-group row">
 		<label for="region" class="col-2 col-form-label">Region</label>
 		<div class="col-10">
-			<input class="form-control" type="password" id="region" placeholder="Region"  name="region"
-			formControlName="region">
-			 <small class="text-danger" *ngIf="vinoForm.controls.region.touched && vinoForm.controls.region.errors?.required">This field is required</small>
+			<input class="form-control" type="text" id="region" placeholder="Region"  name="_region"
+			formControlName="_region">
+			 <small class="text-danger" *ngIf="vinoForm.controls._region.touched && vinoForm.controls._region.errors?.required">This field is required</small>
 			 <br>
-			 <small class="text-danger" *ngIf="vinoForm.controls.region.touched && !hasNumUpLow(vinoForm.controls.region.value)">This field must contain a lowercase, uppercase and a number</small>
+			 <small class="text-danger" *ngIf="vinoForm.controls._region.touched && !hasNumUpLow(vinoForm.controls._region.value)">This field must contain a lowercase, uppercase and a number</small>
 		</div>
 	</div>
 
@@ -68,8 +68,8 @@
 	<div class="form-group row">
 		<label for="description" class="col-2 col-form-label">Description</label>
 		<div class="col-10">
-			<textarea class="form-control" rows="3" id="description" placeholder="Description" name="description" required
-			formControlName="description"></textarea>
+			<textarea class="form-control" rows="3" id="description" placeholder="Description" name="_description"
+			formControlName="_description"></textarea>
 			 <!-- <small>This field is required</small> -->
 		</div>
 	</div>

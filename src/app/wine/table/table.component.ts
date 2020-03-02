@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import {Wine} from '../model/wine.model';
 import { WineService } from '../services/wine.service'
+import { Router } from '@angular/router'
 @Component({
   selector: 'wcellar-table',
   templateUrl: './table.component.html',
@@ -21,7 +22,9 @@ export class TableComponent implements OnInit {
   }
   callEdit(p:number):void
   {
-
+    // this.rt.navigate(['wines/', p])
+    // Ovo bi bila alternativa za izmenu vina, ali koja bi zahteva injekciju rutera unutar tabele
+    // Što po meni nema smisla, jer nema potrebe da zatrpavamo memoriju glupostima
   }
   ngOnInit(): void {
   }

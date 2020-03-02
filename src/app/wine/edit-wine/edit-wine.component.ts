@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup,FormBuilder, Validators } from "@angular/forms";
 import { Wine } from '../model/wine.model'
 import { WineService } from '../services/wine.service'
@@ -21,7 +21,7 @@ export class EditWineComponent implements OnInit {
   // Na greškama se uči. ngModel nije diran, ja nisam samo inicijalizova lokalne templejt promenjive
   public vino:Wine;
   public vinoForm:FormGroup;
-  constructor(private rt: Router,private fb:FormBuilder,private ws:WineService) 
+  constructor(private rt: Router,private fb:FormBuilder,private ws:WineService,private ar:ActivatedRoute) 
   {
     this.makeForm();
     // Jel mogu validatore da koristim skraćeno, ili moram svaki put da kucam ručno?
@@ -30,6 +30,13 @@ export class EditWineComponent implements OnInit {
     // console.log(this.vino);
     this.vinoForm.reset();
     this.vino=this.vinoForm.value;
+    let id:string = this.ar.snapshot.params.id;
+    console.log(`prosledio si wines/${id}`);
+    if (id) 
+    {
+    this.vino=this.ws.dobaviPoID(Number(id));
+    this.vinoForm.patchValue(this.vino);  
+    }
     // console.log(this.hasNumUpLow('PERA1C'));
     // console.log(this.vinoForm.status);
   }
@@ -50,12 +57,12 @@ export class EditWineComponent implements OnInit {
   {
     this.vinoForm=this.fb.group(
       {
-        name:['',[Validators.required,Validators.minLength(2)]],
-        year:['',[Validators.required,Validators.min(1900),Validators.max(2020)]],
-        grapes:['',[Validators.required]],
-        country:['',[Validators.required]],
-        region:['',[Validators.required]],
-        description:['',[Validators.required]]
+        _name:['',[Validators.required,Validators.minLength(2)]],
+        _year:['',[Validators.required,Validators.min(1900),Validators.max(2020)]],
+        _grapes:['',[Validators.required]],
+        _country:['',[Validators.required]],
+        _region:['',[Validators.required]],
+        _description:['',[Validators.required]]
       })
   }
   hasNumUpLow(p:string):boolean

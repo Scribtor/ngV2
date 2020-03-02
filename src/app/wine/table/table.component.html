@@ -23,7 +23,10 @@
       <td>{{x.country}}</td>
       <td>{{x.region}}</td>
       <td> <button class="btn btn-link" (click)="callDelete(x.id)"><span class="fa fa-remove"></span></button> </td>
-      <td> <button class="btn btn-link" (click)="callEdit(x.id)"><span class="fa fa-edit"></span></button> </td>
+      <td> <button class="btn btn-link" [routerLink]="['/wines/',x.id]" ><span class="fa fa-edit"></span></button> </td>
+      <!-- <td> <button class="btn btn-link" (click)="callEdit(x.id)" ><span class="fa fa-edit"></span></button> </td> -->
+      <!-- Ovo bi bila alternativa za routerLink, ali koja bi zahtevala injekciju ruter u klasi tabele -->
+      <!-- Krajnji korisnik ne bi ni na koji način primetio ovu razliku, barem ne neko vreme -->
       <!-- <td>{{x.description}}</td> -->
       <!-- <td>{{x.picture}}</td> -->
       <!-- Na zahtev zadatka, dodao dugmiće za brisanje i izmenu -->

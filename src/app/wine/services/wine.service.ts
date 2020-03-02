@@ -189,15 +189,19 @@ export class WineService {
     this._spisak.push(novo);
     VINA.push(novo);
   }
-  // vratiIndex(p:number,niz:Wine[]):number
+  // vratiIndex(p:number):number
   // {
-  //   for (let i = 0; i < niz.length; i++) {
-  //     if (niz[i].id===p) {
+  //   for (let i = 0; i < this._spisak.length; i++) {
+  //     if (this._spisak[i].id===p) {
   //       return p;
   //     }
   //   }
   //   return -1;
   // }
+  dobaviPoID(p:number):Wine
+  {
+    return this._spisak.find(x=>x.id===p);
+  }
   brisiVino(p:number)
   {
     var idx = this._spisak.findIndex(x => x.id===p);

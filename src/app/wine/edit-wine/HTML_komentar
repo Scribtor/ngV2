@@ -37,3 +37,9 @@ u našem TS fajlu zove "vinoForm" -->
 
 
 <!-- Dodavanje servisa ne utiče na sadržaj ovog fajla -->
+
+
+<!-- APSOLUTNI DEBILIZAM. setValue i patchValue rade samo ako su atributi identični ali apsojebenolutno -->
+<!-- identični i po tipu i po vidljivosti i po imenu, po svemu. Ovo je apsolutna zajebancija. E ZATO -->
+<!-- nisam fan framework-a nijednog..moram ja da nagađam šta je Peri iz Indonezije palo na pamet da je ok -->
+<!-- i normalno. MRŠ!
