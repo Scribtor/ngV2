@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import {Wine} from '../model/wine.model';
-
+import { WineService } from '../services/wine.service'
 @Component({
   selector: 'wcellar-table',
   templateUrl: './table.component.html',
@@ -8,9 +8,19 @@ import {Wine} from '../model/wine.model';
 })
 export class TableComponent implements OnInit {
  @Input() public Vina: Wine[];
+ @Output() public javiPromenuElem:EventEmitter<number>;
 
-  constructor() 
+  constructor(private ws:WineService) 
   { 
+    this.javiPromenuElem=new EventEmitter;
+  }
+  callDelete(p:number):void
+  {
+    this.ws.brisiVino(p);
+    // this.javiPromenuElem.emit(this.ws.vratiSve().length);
+  }
+  callEdit(p:number):void
+  {
 
   }
   ngOnInit(): void {

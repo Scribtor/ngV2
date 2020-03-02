@@ -143,7 +143,7 @@ export var VINA =
   providedIn: 'root'
 })
 export class WineService {
-  private spisak:Wine[]=[];
+  private _spisak: Wine[] = []
   private _krajnjiID: number = VINA.length
   private _servBrElem: number = 0
   constructor() { 
@@ -170,24 +170,38 @@ export class WineService {
 
   public praviListu(indexStart:number, indexEnd:number,brElem:number)
   {
-    this.spisak=[];
+    this._spisak=[];
     for (let i = indexStart; i < indexEnd; i++) 
     {
-      this.spisak.push(new Wine(VINA[i]));
+      this._spisak.push(new Wine(VINA[i]));
     }
     this.servBrElem=brElem;
     // console.log(`Poslao sam ${this.brojElemenataPoStranici} elemenata paginationKomponenti`);
   }
   public vratiSve():Wine[]
   {
-    return this.spisak;
+    return this._spisak;
   }
   dodajVino(novo:Wine)
   {
     this.krajnjiID+=1;
     novo.id=this.krajnjiID;
-    this.spisak.push(novo);
+    this._spisak.push(novo);
     VINA.push(novo);
+  }
+  // vratiIndex(p:number,niz:Wine[]):number
+  // {
+  //   for (let i = 0; i < niz.length; i++) {
+  //     if (niz[i].id===p) {
+  //       return p;
+  //     }
+  //   }
+  //   return -1;
+  // }
+  brisiVino(p:number)
+  {
+    var idx = this._spisak.findIndex(x => x.id===p);
+    this._spisak.splice(idx,1);
   }
 }
 

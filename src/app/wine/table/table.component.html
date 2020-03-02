@@ -11,6 +11,7 @@
       <th class="hed6">  </th>
       <!-- <th class="hed7">Description<button class="btn btn-link"><span class="fa fa-sort"></span></button> </th> -->
       <!-- <th class="hed8">Pičkur<button class="btn btn-link"><span class="fa fa-sort"></span></button> </th> -->
+      <!-- Dodao sam dva prazna th elementa da bi dovršio liniju koju th elementi prave u butstrepovoj klasi -->
     </tr>
   </thead>
   <tbody>
@@ -21,10 +22,11 @@
       <td>{{x.grapes}}</td>
       <td>{{x.country}}</td>
       <td>{{x.region}}</td>
-      <td> <button class="btn btn-link"><span class="fa fa-remove"></span></button> </td>
-      <td> <button class="btn btn-link"><span class="fa fa-edit"></span></button> </td>
+      <td> <button class="btn btn-link" (click)="callDelete(x.id)"><span class="fa fa-remove"></span></button> </td>
+      <td> <button class="btn btn-link" (click)="callEdit(x.id)"><span class="fa fa-edit"></span></button> </td>
       <!-- <td>{{x.description}}</td> -->
       <!-- <td>{{x.picture}}</td> -->
+      <!-- Na zahtev zadatka, dodao dugmiće za brisanje i izmenu -->
   </tbody>
 </table>
 
