@@ -159,7 +159,7 @@ export const WINES =
     
     constructor(obj?: any) 
     {
-		this._id = obj && obj._id || null;
+		this.id = obj && obj.id || null;
 		this.name = obj && obj.name || null;
         this.year = obj && obj.year || null;
 		this.grapes = obj && obj.grapes || null;
