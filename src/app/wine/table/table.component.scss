@@ -1,12 +1,21 @@
-@mixin clearfix {
-	&:before, &:after {
-	    content: "";
-	    display: table;
-	}
-	&:after {
-	    clear: both;
-	}
+thead{
+    width: 100%;
 }
+tr{
+    width: 100%;
+}
+thead{
+    width: 100%;
+}
+// @mixin clearfix {
+// 	&:before, &:after {
+// 	    content: "";
+// 	    display: table;
+// 	}
+// 	&:after {
+// 	    clear: both;
+// 	}
+// }
 // *{
 //     box-sizing: border-box;
 //     margin: 0;
