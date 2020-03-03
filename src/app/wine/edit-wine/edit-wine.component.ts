@@ -31,7 +31,7 @@ export class EditWineComponent implements OnInit {
     this.vinoForm.reset();
     this.vino=this.vinoForm.value;
     let id:string = this.ar.snapshot.params.id;
-    console.log(`prosledio si wines/${id}`);
+    // console.log(`prosledio si wines/${id}`);
     if (id) 
     {
     this.vino=this.ws.dobaviPoID(Number(id));
@@ -50,7 +50,7 @@ export class EditWineComponent implements OnInit {
       this.ws.dodajVino(submit);
     }
     // console.log(JSON.stringify(this.vino));
-    console.log(this.vino);
+    // console.log(this.vino);
     this.rt.navigate(['wines']);
   }
   onRevert()
