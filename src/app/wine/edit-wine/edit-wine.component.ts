@@ -61,12 +61,12 @@ export class EditWineComponent implements OnInit {
   {
     this.vinoForm=this.fb.group(
       {
-        _name:['',[Validators.required,Validators.minLength(2)]],
-        _year:['',[Validators.required,Validators.min(1900),Validators.max(2020)]],
-        _grapes:['',[Validators.required]],
-        _country:['',[Validators.required]],
-        _region:['',[Validators.required]],
-        _description:['',[Validators.required]]
+        name:['',[Validators.required,Validators.minLength(2)]],
+        year:['',[Validators.required,Validators.min(1900),Validators.max(2020)]],
+        grapes:['',[Validators.required]],
+        country:['',[Validators.required]],
+        region:['',[Validators.required]],
+        description:['',[Validators.required]]
       })
   }
   hasNumUpLow(p:string):boolean
