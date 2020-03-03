@@ -42,11 +42,15 @@ export class EditWineComponent implements OnInit {
   }
   onSubmit()
   {
-    this.vino=this.vinoForm.value;
+    let submit:Wine=new Wine(this.vinoForm.value);
+    if (this.vino && this.vino.id) {
+      submit.id=this.vino.id;
+      this.ws.osveziVino(submit);
+    }else{
+      this.ws.dodajVino(submit);
+    }
     // console.log(JSON.stringify(this.vino));
     console.log(this.vino);
-    this.ws.dodajVino(this.vino);
-    this.vinoForm.reset();
     this.rt.navigate(['wines']);
   }
   onRevert()

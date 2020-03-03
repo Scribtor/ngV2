@@ -8,7 +8,7 @@ import { WineService } from '../services/wine.service'
 })
 
 export class WineListComponent implements OnInit {
-  public poslatLimit = this.ws.krajnjiID;
+  public poslatLimit:number;
   public ListaVina: Wine[]=[];
   public brojElemenataPoStranici:number=0;
   constructor(private ws:WineService)
@@ -56,6 +56,7 @@ export class WineListComponent implements OnInit {
   ngOnInit(): void {
     this.ListaVina=this.ws.vratiSve();   
     this.brojElemenataPoStranici=this.ws.servBrElem;
+    this.poslatLimit=this.ws.krajnjiID;
   }
 
 }

@@ -207,5 +207,10 @@ export class WineService {
     var idx = this._spisak.findIndex(x => x.id===p);
     this._spisak.splice(idx,1);
   }
+  osveziVino(tmp:Wine)
+  {
+    var idx = this._spisak.findIndex(x=>x.id==tmp.id);
+    this._spisak[idx]=tmp;
+  }
 }
 
