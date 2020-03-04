@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import {Wine} from '../model/wine.model';
 import { WineService } from '../services/wine.service'
 import { Router } from '@angular/router'
+import { ServedWineService } from '../services/served-wine.service'
 // import { EditWineComponent } from "../edit-wine/edit-wine.component";
 @Component({
   selector: 'wcellar-table',
@@ -12,13 +13,14 @@ export class TableComponent implements OnInit {
  @Input() public Vina: Wine[];
  @Output() public javiPromenuElem:EventEmitter<number>;
 
-  constructor(private wsL:WineService,private rt:Router) 
+  constructor(private wsL:WineService,private rt:Router,private wsH:ServedWineService) 
   { 
     this.javiPromenuElem=new EventEmitter;
   }
   callDelete(p:number):void
   {
     this.wsL.brisiVino(p);
+    // this.wsH.brisiVino(p);
     // this.javiPromenuElem.emit(this.ws.vratiSve().length);
   }
   callEdit(p:number):void

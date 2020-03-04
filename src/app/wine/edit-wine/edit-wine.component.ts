@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup,FormBuilder, Validators } from "@angular/forms";
 import { Wine } from '../model/wine.model'
 import { WineService } from '../services/wine.service'
+import { ServedWineService } from '../services/served-wine.service'
 @Component({
   selector: 'wcellar-edit-wine',
   templateUrl: './edit-wine.component.html',
@@ -21,11 +22,23 @@ export class EditWineComponent implements OnInit {
   // Na greškama se uči. ngModel nije diran, ja nisam samo inicijalizova lokalne templejt promenjive
   public vino:Wine;
   public vinoForm:FormGroup;
-  constructor(private rt: Router,private fb:FormBuilder,private wsL:WineService,private ar:ActivatedRoute) 
+
+  constructor
+    (
+    private rt: Router,
+    private fb:FormBuilder,
+    private wsL:WineService,
+    private ar:ActivatedRoute,
+    private wsH:ServedWineService
+    ) 
+
   {
     this.makeForm();
     // Jel mogu validatore da koristim skraćeno, ili moram svaki put da kucam ručno?
   }
+
+
+
   ngOnInit(): void {
     // console.log(this.vino);
     this.vinoForm.reset();
@@ -46,8 +59,10 @@ export class EditWineComponent implements OnInit {
     if (this.vino && this.vino.id) {
       submit.id=this.vino.id;
       this.wsL.osveziVino(submit);
+      // this.wsH.osveziVino(submit);
     }else{
       this.wsL.dodajVino(submit);
+      // this.wsH.dodajVino(submit);
     }
     // console.log(JSON.stringify(this.vino));
     // console.log(this.vino);
