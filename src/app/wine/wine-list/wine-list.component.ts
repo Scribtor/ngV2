@@ -55,9 +55,12 @@ export class WineListComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.ListaVina=this.wsL.vratiSve();   
-    this.brojElemenataPoStranici=this.wsL.servBrElem;
-    this.poslatLimit=this.wsL.krajnjiID;
+    this.wsH.getData().subscribe
+      (
+       data => { this.poslatLimit = data.count; this.ListaVina = data.wines;}, 
+       error =>{console.log("Error fetching data, because: ", error.statusText);}
+      );
+      console.log(this.ListaVina);
   }
 
 }

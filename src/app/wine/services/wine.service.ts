@@ -19,18 +19,6 @@ export class WineService{
     );
   }
 
-  ngOnInit()
-  {
-    this.wsH.getData().subscribe
-      (
-       data => { this.krajnjiID = data.count; this.spisak = data.wines;}, 
-       error =>{console.log("Error fetching data, because: ", error.statusText);}
-      );
-      console.log(this.spisak);
-      
-  }
-  
-
   public praviListu(indexStart:number, indexEnd:number,brElem:number)
   {
     this.spisak=[];

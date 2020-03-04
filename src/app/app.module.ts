@@ -11,6 +11,7 @@ import { SearchFormComponent } from './wine/search-form/search-form.component';
 import { TableComponent } from './wine/table/table.component';
 import { PaginationComponent } from './wine/pagination/pagination.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
