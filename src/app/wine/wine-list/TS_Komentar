@@ -93,3 +93,5 @@ prilikom inicijalizacije pozovi metodu praviListu() i prosledi sledeće argument
   //
   //
   // Metode i promenjive prepravljene tako da koriste wineService, dostupan zbog injekcije zavisnosti
+
+  // Priprema za peti čas: ws je sada wsL, a kad dođe vreme, testiraću sa novim servisom, wsH

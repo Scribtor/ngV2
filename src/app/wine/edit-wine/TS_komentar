@@ -68,4 +68,14 @@ KAKO GA JE BOG ZAPOVEDIO
 NIJE SAMO ZA KOMPONENTE KOJE PRIČAJU MEĐUSOBNO VEĆ ZA BILO KOJE PRISTUPANJE ATRIBUTIMA
 
 BATALI PRIVATE KONCEPT U JS-U I NEK SVE BUDE PUBLIC
+
+
+U pripremi za peti čas, da ne bi svako malo radio checkout na git-u dok eksperimentišem sa serverom,
+wsL je wineService koji radi na osnovu definisane promenjive VINA a
+wsH će biti wineService koji radi na serveru.Pisaću novi servis, iz prostog razloga da mogu da lakše
+upoređujem razliku, kao i da testiram za greške ako nešto ne radi odma iz prve.
+Već sam naučio da osim samog koda i izvršavanja, imam još jednog protivnika u razvojnom procesu:
+SMRDLJIVI ANGULAR!!!
+lakše je u implementacijama samo zakomentarisati jedan poziv a odkomentarisati drugi nego sve menjati,
+sve opet pisati, proveravati itd. Ako radi, radi!
 */

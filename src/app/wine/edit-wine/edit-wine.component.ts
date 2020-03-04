@@ -21,7 +21,7 @@ export class EditWineComponent implements OnInit {
   // Na greškama se uči. ngModel nije diran, ja nisam samo inicijalizova lokalne templejt promenjive
   public vino:Wine;
   public vinoForm:FormGroup;
-  constructor(private rt: Router,private fb:FormBuilder,private ws:WineService,private ar:ActivatedRoute) 
+  constructor(private rt: Router,private fb:FormBuilder,private wsL:WineService,private ar:ActivatedRoute) 
   {
     this.makeForm();
     // Jel mogu validatore da koristim skraćeno, ili moram svaki put da kucam ručno?
@@ -34,7 +34,7 @@ export class EditWineComponent implements OnInit {
     // console.log(`prosledio si wines/${id}`);
     if (id) 
     {
-    this.vino=this.ws.dobaviPoID(Number(id));
+    this.vino=this.wsL.dobaviPoID(Number(id));
     this.vinoForm.patchValue(this.vino);  
     }
     // console.log(this.hasNumUpLow('PERA1C'));
@@ -45,9 +45,9 @@ export class EditWineComponent implements OnInit {
     let submit:Wine=new Wine(this.vinoForm.value);
     if (this.vino && this.vino.id) {
       submit.id=this.vino.id;
-      this.ws.osveziVino(submit);
+      this.wsL.osveziVino(submit);
     }else{
-      this.ws.dodajVino(submit);
+      this.wsL.dodajVino(submit);
     }
     // console.log(JSON.stringify(this.vino));
     // console.log(this.vino);

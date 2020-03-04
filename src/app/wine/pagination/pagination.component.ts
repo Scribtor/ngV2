@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
-import { WineListComponent } from '../wine-list/wine-list.component'
 @Component({
   selector: 'wcellar-pagination',
   templateUrl: './pagination.component.html',

@@ -11,7 +11,7 @@ export class WineListComponent implements OnInit {
   public poslatLimit:number;
   public ListaVina: Wine[]=[];
   public brojElemenataPoStranici:number=0;
-  constructor(private ws:WineService)
+  constructor(private wsL:WineService)
   {
   }
   odrediKrajnjiIndex(pIndextmp:number,pElemtmp:number,pLimittmp:number):number
@@ -38,7 +38,7 @@ export class WineListComponent implements OnInit {
     // console.log(tp);    //2
     // console.log(pIndex);//7
     // console.log(kIndex);//5
-    this.ws.praviListu(pIndex,kIndex,this.brojElemenataPoStranici);
+    this.wsL.praviListu(pIndex,kIndex,this.brojElemenataPoStranici);
     // console.log(this.ListaVina.length);//0
     
   }
@@ -53,9 +53,9 @@ export class WineListComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.ListaVina=this.ws.vratiSve();   
-    this.brojElemenataPoStranici=this.ws.servBrElem;
-    this.poslatLimit=this.ws.krajnjiID;
+    this.ListaVina=this.wsL.vratiSve();   
+    this.brojElemenataPoStranici=this.wsL.servBrElem;
+    this.poslatLimit=this.wsL.krajnjiID;
   }
 
 }

@@ -12,13 +12,13 @@ export class TableComponent implements OnInit {
  @Input() public Vina: Wine[];
  @Output() public javiPromenuElem:EventEmitter<number>;
 
-  constructor(private ws:WineService,private rt:Router) 
+  constructor(private wsL:WineService,private rt:Router) 
   { 
     this.javiPromenuElem=new EventEmitter;
   }
   callDelete(p:number):void
   {
-    this.ws.brisiVino(p);
+    this.wsL.brisiVino(p);
     // this.javiPromenuElem.emit(this.ws.vratiSve().length);
   }
   callEdit(p:number):void
@@ -37,3 +37,9 @@ export class TableComponent implements OnInit {
 //  za šta god stoji iza "@Input()", najčešće atribut kojem je definisan tip, ili i početna neka vrednost;
 
 //  Dodavanje servisa APSOLUTNO ništa ne menja ovde
+
+// Klasa je i dalje prosta kao što je i bila kada sam je prvi put izgenerisao, i ostaće takva
+// Treba imati u vidu da je ovo komponenta koja ispunjava dva zadatka
+// Prvi i glavni je prikaz podataka, koje dobija preko Input/Output vezivanja a drugi je 
+// Na posebnim mestima u ovoj komponenti se aktiviraju dve metode ove klase koje onda pozivaju servis,
+// odnosno rutiraju korisnika na drugi lokaciju, a na mesto gde je korisnik želeo

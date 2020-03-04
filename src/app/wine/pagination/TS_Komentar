@@ -58,3 +58,7 @@
 //  i nakon toga loguje
 //  Klasa se takođe postavlja na tu podrazumevanu jedinicu
 // Dodavanje servisa zasad ne utiče na promenu ove komponente
+
+// U pripremi za peti čas, obrisan sad konačno nepotreban import winelist-e
+// Sumnjam na to da je nepotreban otkako sam uveo servis i otkako je povratna sprega za paginaciju u toj
+// komponenti izmenjena da sad poziva servis, a ne da menja atribut komponente
