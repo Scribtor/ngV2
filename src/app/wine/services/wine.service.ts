@@ -5,7 +5,7 @@ import { Wine } from '../model/wine.model'
 export var VINA = 
 [
     {
-        id: 1, 
+        _id: 1, 
         name: 'CHATEAU DE SAINT COSME', 
         year: 2009, 
         grapes: 'Grenache / Syrah', 
@@ -16,7 +16,7 @@ export var VINA =
     }, 
     
     {
-        id: 2, 
+        _id: 2, 
         name: 'LAN RIOJA CRIANZA', 
         year: 2006, 
         grapes: 'Tempranillo', 
@@ -27,7 +27,7 @@ export var VINA =
     }, 
     
     {
-        id: 3, 
+        _id: 3, 
         name: 'MARGERUM SYBARITE', 
         year: 2010, 
         grapes: 'Sauvignon Blanc', 
@@ -38,7 +38,7 @@ export var VINA =
     }, 
     
     {
-        id: 4, 
+        _id: 4, 
         name: 'OWEN ROE "EX UMBRIS"', 
         year: 2009, 
         grapes: 'Syrah', 
@@ -49,7 +49,7 @@ export var VINA =
     },
 
     {
-        id: 5, 
+        _id: 5, 
         name: 'REX HILL', 
         year: 2009, 
         grapes: 'Pinot Noir', 
@@ -60,7 +60,7 @@ export var VINA =
     }, 
     
     {
-        id: 6, 
+        _id: 6, 
         name: 'VITICCIO CLASSICO RISERVA', 
         year: 2007, 
         grapes: 'Sangiovese Merlot', 
@@ -71,7 +71,7 @@ export var VINA =
     }, 
     
     {
-        id: 7, 
+        _id: 7, 
         name: 'CHATEAU LE DOYENNE', 
         year: 2005, 
         grapes: 'Merlot', 
@@ -82,7 +82,7 @@ export var VINA =
     }, 
     
     {
-        id: 8, 
+        _id: 8, 
         name: 'DOMAINE DU BOUSCAT', 
         year: 2009, 
         grapes: 'Merlot', 
@@ -93,7 +93,7 @@ export var VINA =
     }, 
     
     {
-        id: 9, 
+        _id: 9, 
         name: 'BLOCK NINE', 
         year: 2009, 
         grapes: 'Pinot Noir', 
@@ -104,7 +104,7 @@ export var VINA =
     }, 
     
     {
-        id: 10, 
+        _id: 10, 
         name: 'DOMAINE SERENE', 
         year: 2007, 
         grapes: 'Pinot Noir', 
@@ -115,7 +115,7 @@ export var VINA =
     }, 
     
     {
-        id: 11, 
+        _id: 11, 
         name: 'BODEGA LURTON', 
         year: 2011, 
         grapes: 'Pinot Gris', 
@@ -126,7 +126,7 @@ export var VINA =
     }, 
     
     {
-        id: 12, 
+        _id: 12, 
         name: 'LES MORIZOTTES', 
         year: 2009, 
         grapes: 'Chardonnay', 
@@ -143,9 +143,9 @@ export var VINA =
   providedIn: 'root'
 })
 export class WineService {
-  public spisak: Wine[] = []
-  public krajnjiID: number = VINA.length
-  public servBrElem: number = 0
+  public spisak: Wine[] = [];
+  public krajnjiID: number = VINA.length;
+  public servBrElem: number = 0;
   constructor() { 
     this.praviListu(0,this.krajnjiID,12);
   }
@@ -168,7 +168,7 @@ export class WineService {
   dodajVino(novo:Wine)
   {
     this.krajnjiID+=1;
-    novo.id=this.krajnjiID;
+    novo._id=this.krajnjiID;
     this.spisak.push(novo);
     VINA.push(novo);
   }
@@ -183,16 +183,16 @@ export class WineService {
   // }
   dobaviPoID(p:number):Wine
   {
-    return this.spisak.find(x=>x.id===p);
+    return this.spisak.find(x=>x._id===p);
   }
   brisiVino(p:number)
   {
-    var idx = this.spisak.findIndex(x => x.id===p);
+    var idx = this.spisak.findIndex(x => x._id===p);
     this.spisak.splice(idx,1);
   }
   osveziVino(tmp:Wine)
   {
-    var idx = this.spisak.findIndex(x=>x.id==tmp.id);
+    var idx = this.spisak.findIndex(x=>x._id==tmp._id);
     this.spisak[idx]=tmp;
   }
 }

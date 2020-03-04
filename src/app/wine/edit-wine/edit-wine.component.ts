@@ -56,8 +56,8 @@ export class EditWineComponent implements OnInit {
   onSubmit()
   {
     let submit:Wine=new Wine(this.vinoForm.value);
-    if (this.vino && this.vino.id) {
-      submit.id=this.vino.id;
+    if (this.vino && this.vino._id) {
+      submit._id=this.vino._id;
       this.wsL.osveziVino(submit);
       // this.wsH.osveziVino(submit);
     }else{
@@ -95,7 +95,7 @@ export class EditWineComponent implements OnInit {
     
     for (let i = 0; i < p.length; i++) 
     {
-      let x = Number(p[i])
+      let x = Number(p[i]);
       if (x) {
         flagNum=true;
         continue;

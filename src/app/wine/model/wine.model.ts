@@ -11,7 +11,7 @@
 // tslint:disable: indent 
  export class Wine
 {
-    public id: number;
+    public _id: number;
     public name: string;
     public year: number;
     public grapes: string;
@@ -23,9 +23,9 @@
     
     constructor(obj?: any) 
     {
-		this.id = obj && obj.id || null;
+		this._id = obj && obj._id || null;
 		this.name = obj && obj.name || null;
-        this.year = obj && obj.year || null;
+    this.year = obj && obj.year || null;
 		this.grapes = obj && obj.grapes || null;
 		this.country = obj && obj.country || null;
 		this.region = obj && obj.region || null;

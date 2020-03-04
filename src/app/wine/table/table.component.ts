@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import {Wine} from '../model/wine.model';
+import { Wine } from '../model/wine.model';
 import { WineService } from '../services/wine.service'
 import { Router } from '@angular/router'
 import { ServedWineService } from '../services/served-wine.service'
