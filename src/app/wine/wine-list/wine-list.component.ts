@@ -39,7 +39,7 @@ export class WineListComponent implements OnInit {
     // console.log(tp);    //2
     // console.log(pIndex);//7
     // console.log(kIndex);//5
-    this.wsL.praviListu(pIndex,kIndex,this.brojElemenataPoStranici);
+    // this.wsL.praviListu(pIndex,kIndex,this.brojElemenataPoStranici);
     // this.wsH.praviListu(pIndex,kIndex,this.brojElemenataPoStranici);
     // console.log(this.ListaVina.length);//0
     
