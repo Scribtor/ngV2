@@ -20,7 +20,8 @@ export class WineListComponent implements OnInit {
     let tmp:number = pIndextmp+pElemtmp;
     if (
           (pIndextmp+pElemtmp)>pLimittmp
-       ) {
+       ) 
+    {
       tmp=pIndextmp + (pLimittmp-pIndextmp);
       return tmp;
     }
@@ -56,8 +57,9 @@ export class WineListComponent implements OnInit {
   ngOnInit(): void {
     this.wsH.getData().subscribe
       (
-       data => { this.poslatLimit = data.count; this.ListaVina = data.wines;}, 
-       error =>{console.log("Error fetching data, because: ", error.statusText);}
+      data => { this.wsL.krajnjiID = data.count; this.wsL.spisak = data.wines;}, 
+      error =>{console.log("Error fetching data, because: ", error.statusText);},
+      () => { this.ListaVina= this.wsL.vratiSve(); this.poslatLimit=this.wsL.krajnjiID; }
       );
       console.log(this.ListaVina);
   }
