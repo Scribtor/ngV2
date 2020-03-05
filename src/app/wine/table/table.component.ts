@@ -20,7 +20,6 @@ export class TableComponent implements OnInit {
   callDelete(p:number):void
   {
     this.wsL.brisiVino(p);
-    // this.wsH.brisiVino(p);
     // this.javiPromenuElem.emit(this.ws.vratiSve().length);
   }
   callEdit(p:number):void

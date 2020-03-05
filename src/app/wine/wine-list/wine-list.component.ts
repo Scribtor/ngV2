@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Wine } from '../model/wine.model'
 import { ServedWineService } from '../services/served-wine.service'
+import { WineService } from '../services/wine.service'
 @Component({
   selector: 'wcellar-wine-list',
   templateUrl: './wine-list.component.html',
@@ -11,7 +12,7 @@ export class WineListComponent implements OnInit {
   public poslatLimit:number;
   public ListaVina: Wine[]=[];
   public brojElemenataPoStranici:number=0;
-  constructor(private wsH:ServedWineService)
+  constructor(private wsL:WineService,private wsH:ServedWineService)
   {
   }
   odrediKrajnjiIndex(pIndextmp:number,pElemtmp:number,pLimittmp:number):number
@@ -38,8 +39,7 @@ export class WineListComponent implements OnInit {
     // console.log(tp);    //2
     // console.log(pIndex);//7
     // console.log(kIndex);//5
-    // this.wsL.praviListu(pIndex,kIndex,this.brojElemenataPoStranici);
-    // this.wsH.praviListu(pIndex,kIndex,this.brojElemenataPoStranici);
+    this.wsL.praviListu(pIndex,kIndex,this.brojElemenataPoStranici);
     // console.log(this.ListaVina.length);//0
     
   }

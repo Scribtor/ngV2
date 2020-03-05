@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Wine } from '../model/wine.model';
 import { VINA } from '../model/lokal_var';
-import { ServedWineService } from './served-wine.service'
+import { ServedWineService } from './served-wine.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +12,6 @@ export class WineService{
   public servBrElem: number = 0;
   constructor(private wsH:ServedWineService) { 
     // this.praviListu(0,this.krajnjiID,12);
-    this.wsH.getData().subscribe
-    (
-     data => { this.krajnjiID = data.count; this.spisak = data.wines;}, 
-     error =>{console.log("Error fetching data, because: ", error.statusText);}
-    );
   }
 
   public praviListu(indexStart:number, indexEnd:number,brElem:number)

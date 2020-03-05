@@ -59,10 +59,8 @@ export class EditWineComponent implements OnInit {
     if (this.vino && this.vino._id) {
       submit._id=this.vino._id;
       this.wsL.osveziVino(submit);
-      // this.wsH.osveziVino(submit);
     }else{
       this.wsL.dodajVino(submit);
-      // this.wsH.dodajVino(submit);
     }
     // console.log(JSON.stringify(this.vino));
     // console.log(this.vino);
