@@ -11,10 +11,11 @@ import { Subscription } from 'rxjs'
 
 export class WineListComponent implements OnInit,OnDestroy {
   
-  public poslatLimit:number;
-  public ListaVina: Wine[]=[];
+  public poslatLimit:number=this.wsL.krajnjiID;
+  public ListaVina: Wine[]=this.wsL.spisak;
   public brojElemenataPoStranici:number=0;
   public sub:Subscription;
+  public trigger:number=0;
   constructor(private wsL:WineService,private wsH:ServedWineService)
   {
   }
@@ -61,13 +62,15 @@ export class WineListComponent implements OnInit,OnDestroy {
   {
     this.ListaVina=this.wsL.vratiSve();
     this.poslatLimit=this.wsL.krajnjiID;
+    this.wsL.praviListu(0,this.wsL.krajnjiID,5);
+    this.trigger++;
   }
   ngOnInit(): void {
     this.sub= this.wsH.getData().subscribe
       (
       data => { this.wsL.krajnjiID = data.count; this.wsL.spisak = data.wines;}, 
       error =>{console.log("Error fetching data, because: ", error.statusText);},
-      () => { this.serveService() }
+      () => { if (this.trigger==0) { this.serveService() }  }
       );
       console.log(this.ListaVina);
   }

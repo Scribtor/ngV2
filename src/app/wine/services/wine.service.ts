@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Wine } from '../model/wine.model';
-import { VINA } from '../model/lokal_var';
+// import { VINA } from '../model/lokal_var';
 import { ServedWineService } from './served-wine.service';
 
 @Injectable({
@@ -8,10 +8,11 @@ import { ServedWineService } from './served-wine.service';
 })
 export class WineService{
   public spisak: Wine[] = [];
-  public krajnjiID: number = VINA.length;
+  public krajnjiID: number = 0;
   public servBrElem: number = 0;
+  public httpRSVP:Wine[]=[];
   constructor(private wsH:ServedWineService) { 
-    // this.praviListu(0,this.krajnjiID,12);
+    // this.praviListu(0,this.krajnjiID,5);
   }
 
   public praviListu(indexStart:number, indexEnd:number,brElem:number)
@@ -19,7 +20,7 @@ export class WineService{
     this.spisak=[];
     for (let i = indexStart; i < indexEnd; i++) 
     {
-      this.spisak.push(new Wine(VINA[i]));
+      this.spisak.push(new Wine(this.httpRSVP[i]));
     }
     this.servBrElem=brElem;
     // console.log(`Poslao sam ${this.brojElemenataPoStranici} elemenata paginationKomponenti`);
@@ -32,8 +33,7 @@ export class WineService{
   {
     this.krajnjiID+=1;
     novo._id=this.krajnjiID;
-    this.spisak.push(novo);
-    VINA.push(novo);
+    this.httpRSVP.push(novo);
   }
   // vratiIndex(p:number):number
   // {
@@ -46,11 +46,11 @@ export class WineService{
   // }
   dobaviPoID(p:number):Wine
   {
-    return this.spisak.find(x=>x._id===p);
+    return this.httpRSVP.find(x=>x._id===p);
   }
   brisiVino(p:number)
   {
-    var idx = this.spisak.findIndex(x => x._id===p);
+    var idx = this.httpRSVP.findIndex(x => x._id===p);
     this.spisak.splice(idx,1);
   }
   osveziVino(tmp:Wine)
