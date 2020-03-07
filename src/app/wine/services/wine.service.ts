@@ -35,8 +35,7 @@ export class WineService{
   {
     this.krajnjiID+=1;
     novo._id=this.krajnjiID;
-    this.httpRSVP.push(novo);
-    this.wsH.postData(this.spisak);
+    this.wsH.postData(novo);
   }
   // vratiIndex(p:number):number
   // {
@@ -60,7 +59,7 @@ export class WineService{
   {
     var idx = this.spisak.findIndex(x=>x._id==tmp._id);
     this.spisak[idx]=tmp;
-    this.wsH.putData(this.spisak);
+    this.wsH.putData(tmp);
   }
 }
 

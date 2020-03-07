@@ -14,7 +14,7 @@ const baseUrl="http://localhost:3000/api/wines"
   providedIn: 'root'
 })
 export class ServedWineService {
-  constructor(private http:HttpClient,private wsL:WineService) {
+  constructor(private http:HttpClient) {
 
   }
 
@@ -23,11 +23,11 @@ export class ServedWineService {
     return this.http.get(baseUrl).pipe(map( x=> { return new WineSearchResult(x)}));
   }
 
-  putData(p:Wine[])
+  putData(p:Wine)
   {
     this.http.put(baseUrl,p);
   }
-  postData(p:Wine[])
+  postData(p:Wine)
   {
     this.http.post(baseUrl,p);
   }
