@@ -66,13 +66,13 @@ export class EditWineComponent implements OnInit {
       this.wsH.putData(submit).subscribe(
         x=>{ this.vinoForm.reset();},
         err =>{},
-        ()=>{this.rt.navigate(['wines']); } );
+        ()=>{this.rt.navigate(['wines/']); } );
     }else
     {
       this.wsH.postData(submit).subscribe(
         x=>{ this.vinoForm.reset();},
         err =>{},
-        ()=>{this.rt.navigate(['wines']); } );
+        ()=>{this.rt.navigate(['wines/']); } );
     }
     // console.log(JSON.stringify(this.vino));
     // console.log(this.vino);

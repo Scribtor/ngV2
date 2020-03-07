@@ -23,7 +23,7 @@ export class TableComponent implements OnInit {
     this.wsH.deleteData(p).subscribe(
       x=> {this.vinoDel.emit(x._id)},
       err =>{},
-      ()=>{this.rt.navigate(['wines']); });
+      ()=>{this.rt.navigate(['wines/']); });
     // this.javiPromenuElem.emit(this.ws.vratiSve().length);
   }
   callEdit(p:number):void
