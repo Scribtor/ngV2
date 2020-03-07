@@ -47,7 +47,12 @@ export class EditWineComponent implements OnInit {
     // console.log(`prosledio si wines/${id}`);
     if (id) 
     {
-    this.vino=this.wsL.dobaviPoID(Number(id));
+    this.wsH.getById(Number(id)).subscribe(
+      x=> { 
+        this.vino=x; 
+        this.vinoForm.patchValue(this.vino)
+          }
+    );
     this.vinoForm.patchValue(this.vino);  
     }
     // console.log(this.hasNumUpLow('PERA1C'));
@@ -56,15 +61,25 @@ export class EditWineComponent implements OnInit {
   onSubmit()
   {
     let submit:Wine=new Wine(this.vinoForm.value);
-    if (this.vino && this.vino._id) {
+    if (this.vino && this.vino._id) 
+    {
       submit._id=this.vino._id;
-      this.wsL.osveziVino(submit);
-    }else{
-      this.wsL.dodajVino(submit);
+      this.wsH.putData(submit).subscribe(x=>
+        { 
+          this.vinoForm.reset();
+          this.rt.navigate(['wines']); 
+        } );
+    }else
+    {
+      this.wsH.postData(submit).subscribe(x=>
+        {
+        this.vinoForm.reset();
+        this.rt.navigate(['wines']);
+        } );
     }
     // console.log(JSON.stringify(this.vino));
     // console.log(this.vino);
-    this.rt.navigate(['wines']);
+    
   }
   onRevert()
   {

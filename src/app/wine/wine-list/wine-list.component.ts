@@ -63,20 +63,23 @@ export class WineListComponent implements OnInit,OnDestroy {
     this.wsL.praviListu(0,this.wsL.krajnjiID,5);
     this.ListaVina=this.wsL.vratiSve();
   }
-  ngOnInit(): void {
-    this.sub= this.wsH.getData().subscribe
-      (
+  refreshList():Subscription
+  {
+    return this.wsH.getData().subscribe
+    (
       data => {
-              this.wsL.krajnjiID = data.count; 
-              this.wsL.httpRSVP = data.wines;
-              }, 
-      error =>{
-              console.log("Error fetching data, because: ", error.statusText);
+        this.wsL.krajnjiID = data.count;
+        this.wsL.httpRSVP = data.wines;
               },
-      () =>   { this.serveService() } // Ovo se dogadja kada pristignu svi podaci
-
-      );
-      console.log(this.ListaVina);
+      error => {
+        console.log("error", error.statusText);
+               },
+      () => { this.serveService() }
+    );
+  }
+  ngOnInit(): void {
+    this.sub= this.refreshList();
+    console.log(this.ListaVina);
   }
   ngOnDestroy (): void
   {

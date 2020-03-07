@@ -12,6 +12,7 @@ import { ServedWineService } from '../services/served-wine.service'
 export class TableComponent implements OnInit {
  @Input() public Vina: Wine[];
  @Output() public javiPromenuElem:EventEmitter<number>;
+ @Output() private vinoDel :EventEmitter<number> = new EventEmitter();
 
   constructor(private wsL:WineService,private rt:Router,private wsH:ServedWineService) 
   { 
@@ -19,7 +20,7 @@ export class TableComponent implements OnInit {
   }
   callDelete(p:number):void
   {
-    this.wsL.brisiVino(p);
+    this.wsH.deleteData(p).subscribe( x=> {this.vinoDel.emit(x._id)});
     // this.javiPromenuElem.emit(this.ws.vratiSve().length);
   }
   callEdit(p:number):void
