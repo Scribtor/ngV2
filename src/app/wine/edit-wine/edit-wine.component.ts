@@ -64,18 +64,16 @@ export class EditWineComponent implements OnInit {
     if (this.vino && this.vino._id) 
     {
       submit._id=this.vino._id;
-      this.wsH.putData(submit).subscribe(x=>
-        { 
-          this.vinoForm.reset();
-          this.rt.navigate(['wines']); 
-        } );
+      this.wsH.putData(submit).subscribe(
+        x=>{ this.vinoForm.reset();},
+        err =>{},
+        ()=>{this.rt.navigate(['wines']); } );
     }else
     {
-      this.wsH.postData(submit).subscribe(x=>
-        {
-        this.vinoForm.reset();
-        this.rt.navigate(['wines']);
-        } );
+      this.wsH.postData(submit).subscribe(
+        x=>{ this.vinoForm.reset();},
+        err =>{},
+        ()=>{this.rt.navigate(['wines']); } );
     }
     // console.log(JSON.stringify(this.vino));
     // console.log(this.vino);
