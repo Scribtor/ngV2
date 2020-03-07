@@ -15,7 +15,6 @@ export class WineListComponent implements OnInit,OnDestroy {
   public ListaVina: Wine[]=this.wsL.spisak;
   public brojElemenataPoStranici:number=0;
   public sub:Subscription;
-  public trigger:number=0;
   constructor(private wsL:WineService,private wsH:ServedWineService)
   {
   }
@@ -60,17 +59,22 @@ export class WineListComponent implements OnInit,OnDestroy {
   }
   serveService()
   {
-    this.ListaVina=this.wsL.vratiSve();
     this.poslatLimit=this.wsL.krajnjiID;
     this.wsL.praviListu(0,this.wsL.krajnjiID,5);
-    this.trigger++;
+    this.ListaVina=this.wsL.vratiSve();
   }
   ngOnInit(): void {
     this.sub= this.wsH.getData().subscribe
       (
-      data => { this.wsL.krajnjiID = data.count; this.wsL.spisak = data.wines;}, 
-      error =>{console.log("Error fetching data, because: ", error.statusText);},
-      () => { if (this.trigger==0) { this.serveService() }  }
+      data => {
+              this.wsL.krajnjiID = data.count; 
+              this.wsL.httpRSVP = data.wines;
+              }, 
+      error =>{
+              console.log("Error fetching data, because: ", error.statusText);
+              },
+      () =>   { this.serveService() } // Ovo se dogadja kada pristignu svi podaci
+
       );
       console.log(this.ListaVina);
   }

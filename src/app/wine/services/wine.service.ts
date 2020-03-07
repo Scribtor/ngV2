@@ -10,7 +10,9 @@ export class WineService{
   public spisak: Wine[] = [];
   public krajnjiID: number = 0;
   public servBrElem: number = 0;
-  public httpRSVP:Wine[]=[];
+  public httpRSVP:Wine[]=[]; 
+  // Ovo je property koji će da čuva ono što stigne sa servera, dok se zapravo samo property spisak menja,
+  // a na osnovu veličine ovog property-a. Ovo menja "const VINA" čiji je import zakomentarisan gore
   constructor(private wsH:ServedWineService) { 
     // this.praviListu(0,this.krajnjiID,5);
   }
@@ -34,6 +36,7 @@ export class WineService{
     this.krajnjiID+=1;
     novo._id=this.krajnjiID;
     this.httpRSVP.push(novo);
+    this.wsH.postData(this.spisak);
   }
   // vratiIndex(p:number):number
   // {
@@ -51,12 +54,13 @@ export class WineService{
   brisiVino(p:number)
   {
     var idx = this.httpRSVP.findIndex(x => x._id===p);
-    this.spisak.splice(idx,1);
+    this.wsH.deleteData(p);
   }
   osveziVino(tmp:Wine)
   {
     var idx = this.spisak.findIndex(x=>x._id==tmp._id);
     this.spisak[idx]=tmp;
+    this.wsH.putData(this.spisak);
   }
 }
 
