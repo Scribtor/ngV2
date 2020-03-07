@@ -27,7 +27,6 @@ export class EditWineComponent implements OnInit {
     (
     private rt: Router,
     private fb:FormBuilder,
-    private wsL:WineService,
     private ar:ActivatedRoute,
     private wsH:ServedWineService
     ) 

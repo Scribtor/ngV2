@@ -22,7 +22,7 @@ export class ServedWineService {
   putData(p:Wine):Observable<Wine>
   {
     return this.http.put(baseUrl+"/"+p._id,p).pipe(map(x=> {return new Wine(x)}));
-  }
+  }//izmena radi
   postData(p:Wine):Observable<Wine>
   {
     return this.http.post(baseUrl,p).pipe(map(x =>{return new Wine(x)}));
