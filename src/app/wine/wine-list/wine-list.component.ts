@@ -38,7 +38,7 @@ export class WineListComponent implements OnInit {
     // console.log(tp);    //2
     // console.log(pIndex);//7
     // console.log(kIndex);//5
-    this.ws.praviListu(pIndex,kIndex,this.brojElemenataPoStranici);
+    this.ws.praviListu(pIndex,kIndex,this.brojElemenataPoStranici).subscribe( data=> this.ListaVina=data);
     // console.log(this.ListaVina.length);//0
     
   }
@@ -53,7 +53,7 @@ export class WineListComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.ListaVina=this.ws.vratiSve();   
+    this.ws.vratiSve().subscribe(data => this.ListaVina=data);   
     this.brojElemenataPoStranici=this.ws.servBrElem;
     this.poslatLimit=this.ws.krajnjiID;
   }

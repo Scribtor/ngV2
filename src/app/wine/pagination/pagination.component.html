@@ -12,8 +12,7 @@
         ><a class="page-link">{{x}}</a></li>
       <li class="page-item"><a class="page-link"
         (click)="odaberiStranu(odabranaStrana+1)"
-        *ngIf="odabranaStrana<(dobaviBrojStrana())"
-        >Next</a></li>
+        *ngIf="odabranaStrana(dobaviBrojStrana())">Next</a></li>
     </ul>
   </nav>
   </div>

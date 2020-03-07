@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Wine } from '../model/wine.model'
+import { Observable, of } from 'rxjs';
 
 
 export var VINA = 
@@ -151,7 +152,7 @@ export class WineService {
   }
   
 
-  public praviListu(indexStart:number, indexEnd:number,brElem:number)
+  public praviListu(indexStart:number, indexEnd:number,brElem:number):Observable<any>
   {
     this.spisak=[];
     for (let i = indexStart; i < indexEnd; i++) 
@@ -160,17 +161,19 @@ export class WineService {
     }
     this.servBrElem=brElem;
     // console.log(`Poslao sam ${this.brojElemenataPoStranici} elemenata paginationKomponenti`);
+    return of(this.spisak);
   }
-  public vratiSve():Wine[]
+  public vratiSve() : Observable<any>
   {
-    return this.spisak;
+    return of(this.spisak);
   }
-  dodajVino(novo:Wine)
+  dodajVino(novo:Wine) : Observable<any>
   {
     this.krajnjiID+=1;
     novo.id=this.krajnjiID;
     this.spisak.push(novo);
     VINA.push(novo);
+    return of(novo);
   }
   // vratiIndex(p:number):number
   // {
@@ -181,19 +184,21 @@ export class WineService {
   //   }
   //   return -1;
   // }
-  dobaviPoID(p:number):Wine
+  dobaviPoID(p:number) : Observable<any>
   {
-    return this.spisak.find(x=>x.id===p);
+    return of(this.spisak.find(x=>x.id===p));
   }
-  brisiVino(p:number)
+  brisiVino(p:number) : Observable<any>
   {
     var idx = this.spisak.findIndex(x => x.id===p);
     this.spisak.splice(idx,1);
+    return of(this.spisak.splice(idx,1)[0]);
   }
-  osveziVino(tmp:Wine)
+  osveziVino(tmp:Wine) : Observable<any>
   {
     var idx = this.spisak.findIndex(x=>x.id==tmp.id);
     this.spisak[idx]=tmp;
+    return of(tmp);
   }
 }
 
