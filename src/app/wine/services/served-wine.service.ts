@@ -29,7 +29,7 @@ export class ServedWineService {
   }//dodavanje radi
   deleteData(p:number):Observable<Wine>
   {
-    return this.http.delete(`${baseUrl}/${p}`).pipe(map(x =>{return new Wine(x)}));
+    return this.http.delete(baseUrl+"/"+p).pipe(map(x =>{return new Wine(x)}));
   }//brisanje radi
 
   getById(id :number):Observable<Wine> {

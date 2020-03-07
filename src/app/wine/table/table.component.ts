@@ -23,7 +23,9 @@ export class TableComponent implements OnInit {
     this.wsH.deleteData(p).subscribe(
       x=> {this.vinoDel.emit(x._id)},
       err =>{},
-      ()=>{this.rt.navigate(['']); console.log('evo neki tekst za DELETE') });
+      ()=>{
+        console.log('evo neki tekst za DELETE');
+         });
     // this.javiPromenuElem.emit(this.ws.vratiSve().length);
   }
   callEdit(p:number):void

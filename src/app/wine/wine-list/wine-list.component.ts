@@ -11,8 +11,8 @@ import { Subscription } from 'rxjs'
 
 export class WineListComponent implements OnInit,OnDestroy {
   
-  public poslatLimit:number=this.wsL.krajnjiID;
-  public ListaVina: Wine[]=this.wsL.spisak;
+  public poslatLimit:number;
+  public ListaVina: Wine[];
   public brojElemenataPoStranici:number=0;
   public sub:Subscription;
   constructor(private wsL:WineService,private wsH:ServedWineService)
@@ -57,32 +57,27 @@ export class WineListComponent implements OnInit,OnDestroy {
     this.izmeniStranuPaginacije(1);
 
   }
-  serveService()
-  {
-    this.poslatLimit=this.wsL.krajnjiID;
-    this.wsL.praviListu(0,this.wsL.krajnjiID,5);
-    this.ListaVina=this.wsL.vratiSve();
-  }
   refreshList():Subscription
   {
     return this.wsH.getData().subscribe
     (
       data => {
-        this.wsL.krajnjiID = data.count;
-        this.wsL.httpRSVP = data.wines;
+        this.poslatLimit = data.count;
+        this.ListaVina = data.wines;
               },
       error => {
         console.log("error", error.statusText);
                },
-      () => { this.serveService() }
+      () => {console.log('evo desilo se ovo'); console.log(this.ListaVina)
+       }
     );
   }
   ngOnInit(): void {
-    this.sub= this.refreshList();
+    this.refreshList();
     console.log(this.ListaVina);
   }
   ngOnDestroy (): void
   {
-    this.sub.unsubscribe();
+    // this.refreshList().unsubscribe(); 
   }
 }
