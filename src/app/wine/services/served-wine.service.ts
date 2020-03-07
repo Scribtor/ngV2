@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { map } from "rxjs/operators/";
 import { WineSearchResult } from '../model/WineSearchResult'
 import { Observable } from 'rxjs';
-import { WineService } from './wine.service';
 import { Wine } from '../model/wine.model';
 
 const baseUrl="http://localhost:3000/api/wines"
