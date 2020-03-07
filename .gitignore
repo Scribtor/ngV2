@@ -44,3 +44,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+src/app/app-routing/.routes.ts.un~
+src/app/app-routing/routes.ts~
+src/app/wine/table/.table.component.ts.un~
+src/app/wine/table/table.component.ts~

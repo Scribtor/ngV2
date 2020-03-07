@@ -52,7 +52,6 @@ export class EditWineComponent implements OnInit {
         this.vinoForm.patchValue(this.vino)
           }
     );
-    this.vinoForm.patchValue(this.vino);  
     }
     // console.log(this.hasNumUpLow('PERA1C'));
     // console.log(this.vinoForm.status);
@@ -66,13 +65,13 @@ export class EditWineComponent implements OnInit {
       this.wsH.putData(submit).subscribe(
         x=>{ this.vinoForm.reset();},
         err =>{},
-        ()=>{this.rt.navigate(['wines/']); } );
+        ()=>{this.rt.navigate(['']); console.log('evo neki tekst za PUT');  } );
     }else
     {
       this.wsH.postData(submit).subscribe(
         x=>{ this.vinoForm.reset();},
         err =>{},
-        ()=>{this.rt.navigate(['wines/']); } );
+        ()=>{this.rt.navigate(['']); console.log('evo neki tekst za POST'); } );
     }
     // console.log(JSON.stringify(this.vino));
     // console.log(this.vino);
