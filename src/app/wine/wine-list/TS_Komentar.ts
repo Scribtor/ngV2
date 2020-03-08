@@ -95,3 +95,25 @@ prilikom inicijalizacije pozovi metodu praviListu() i prosledi sledeće argument
   // Metode i promenjive prepravljene tako da koriste wineService, dostupan zbog injekcije zavisnosti
 
   // Priprema za peti čas: ws je sada wsL, a kad dođe vreme, testiraću sa novim servisom, wsH
+
+  // refreshList() je nova metoda, koja obezbeđuje prvo, i novo učitavanje liste,
+  // a sve na osnovu HTTP servisa koji dobavljaju podatke sa "servera" nodeJSExpress-a
+  // Ona se jednostavno pretplaćuje, jer je to sad obavezno, SUBSCRIBE, na odjednom ASINHRONU
+  // metodu dobavljanja podataka. Da pojasnim:
+  // DATA deo govori šta će biti sa podacima kada pristignu, odnosno data je ona nova model klasa 
+  // koja glumi odgovor sa servera
+  // ERROR deo govori kako će se rukovati program u slučaju da dođe do greške
+  // kod mene je to zasad samo log u konzolu
+  // () DEO je NAJVAŽNIJI jer on govori šta će program da izvrši NAKON što se dobave svi podacima
+  // OVO SAM JAKO DUGO VIJAO DA POHVATAM ne bi li ga nadogradio na projekat
+  // Smrdljive kursadžije svaki čas menjaju pesmu i umesto da prate na jednom projektu sve
+  // oni za svaki primer novog koncepta izmišljaju nove reference (vine,pica,restorani,to zbuni čoveka)
+  // Budući da su sada stvari prebačene sa lokalnog wsL servisa na novi wsH, i praćenje izmena je sada
+  // drukčije. refreshList() postoji da bi obezbedio sveže podatke prilikom inicijalizacije
+  // kao i prilikom brisanja stavki liste, jer je TABELA PODkomponenta ove komponente
+  // za izmenu i osvežavanje ovo nije neophodno, budući da se forma za te stvari nalazi na drugoj
+  // adresi pa sim tim rutiranje obavlja ovaj posao direktno
+  // Nakon duge i teške operacije, operacija je uspešna. Pacijent je mrtav
+  // igrao sam se dosta sa time da li mi treba ili ne polje "poslatLimit" i ispostavlja se
+  // da mi TREBA....svaka meni čast kad sam dobro postavio ovaj projekat, tako da sada i paginacija
+  // radi barem na lokalu, odnosno u odnosu na ono što se dobije sa servera
