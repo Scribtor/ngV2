@@ -21,12 +21,11 @@ export class WineListComponent implements OnInit,OnDestroy {
   //   console.log("8. Treba mi AfterView");
   // }
   
-  public poslatLimit:number;
-  public ListaVina: Wine[];
-  public httpRSVP:Wine[];
+  public poslatLimit:number=0;
+  public ListaVina: Wine[]=[];
+  public httpRSVP:Wine[]=[];
   public brojElemenataPoStranici:number=0;
-  public sub:Subscription;
-  constructor(private wsL:WineService,private wsH:ServedWineService)
+  constructor(private wsH:ServedWineService)
   {
   }
   
@@ -76,7 +75,6 @@ export class WineListComponent implements OnInit,OnDestroy {
     // console.log(`Javljeno da je novi broj elemenata ${p}`);
     this.brojElemenataPoStranici=Number(p);
     this.izmeniStranuPaginacije(1);
-
   }
   refreshList():Subscription
   {
@@ -90,13 +88,14 @@ export class WineListComponent implements OnInit,OnDestroy {
         console.log("error", error.statusText);
                },
       () => {
-        console.log('pokupio sam podatke?');
+        // console.log('pokupio sam podatke?');
+        this.praviListu(0,this.poslatLimit,this.poslatLimit);
        },
     );
   }
   ngOnInit(): void {
     this.refreshList();
-    console.log(this.ListaVina);
+    // console.log(this.ListaVina);
   }
   ngOnDestroy (): void
   {
