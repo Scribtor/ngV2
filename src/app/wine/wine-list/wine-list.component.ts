@@ -30,7 +30,7 @@ export class WineListComponent implements OnInit,OnDestroy {
     sort:"",
     sortDirection:"",
     page:1,
-    pageSize:7,
+    pageSize:50,
     filter:{
       name:""
     }
@@ -82,7 +82,7 @@ export class WineListComponent implements OnInit,OnDestroy {
   {
     // console.log(p);
     
-    // console.log(`Javljeno da je novi broj elemenata ${p}`);
+    console.log(`Javljeno da je novi broj elemenata ${p}`);
     this.brojElemenataPoStranici=Number(p);
     this.izmeniStranuPaginacije(1);
   }
@@ -91,7 +91,8 @@ export class WineListComponent implements OnInit,OnDestroy {
     return this.wsH.getData(this.hstpParamS).subscribe
     (
       data => {
-        this.poslatLimit = data.count-(data.count - this.hstpParamS.page*this.hstpParamS.pageSize);
+        this.poslatLimit = data.wines.length; // Neozbiljno,matori
+        // Ovo je trebalo da bude data.count, ali nije. Neozbiljno
         this.httpRSVP = data.wines;
         // this.poslatLimit=7;
               },
