@@ -100,12 +100,13 @@ export class WineListComponent implements OnInit,OnDestroy {
       () => {
         // console.log('pokupio sam podatke?');
         this.praviListu(0,this.poslatLimit,this.poslatLimit);
+        console.log(`Dobio sam sa servera ${this.ListaVina.length} komada vina `);
        },
     );
   }
   ngOnInit(): void {
     this.refreshList();
-    // console.log(this.ListaVina);
+    console.log(`Dobio sam sa servera ${this.ListaVina.length} komada vina `);
   }
   ngOnDestroy (): void
   {

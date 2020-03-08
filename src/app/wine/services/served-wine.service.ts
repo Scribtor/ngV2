@@ -13,7 +13,7 @@ const baseUrl="http://localhost:3000/api/wines"
 export class ServedWineService {
   constructor(private http:HttpClient) {}
 
-  getData(p?:any):Observable<WineSearchResult>
+  getData(p:any):Observable<WineSearchResult>
   {
     let qP ={};
     if (p) 
