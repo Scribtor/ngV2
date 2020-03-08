@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup,FormBuilder, Validators } from "@angular/forms";
 import { Wine } from '../model/wine.model'
 import { WineService } from '../services/wine.service'
 import { ServedWineService } from '../services/served-wine.service'
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'wcellar-edit-wine',
   templateUrl: './edit-wine.component.html',
   styleUrls: ['./edit-wine.component.scss']
 })
-export class EditWineComponent implements OnInit {
+export class EditWineComponent implements OnInit,OnDestroy {
   // public vino={
   //   name:"SeraFino",
   //   year:1991,
@@ -56,27 +57,33 @@ export class EditWineComponent implements OnInit {
     // console.log(this.hasNumUpLow('PERA1C'));
     // console.log(this.vinoForm.status);
   }
+  ngOnDestroy(): void {
+   this.putToHttp().unsubscribe();
+   this.postToHttp().unsubscribe();
+  }
   onSubmit()
   {
     let submit:Wine=new Wine(this.vinoForm.value);
     if (this.vino && this.vino._id) 
     {
-      submit._id=this.vino._id;
-      this.wsH.putData(submit).subscribe(
-        x=>{ this.vinoForm.reset();},
-        err =>{},
-        ()=>{this.rt.navigate(['']); console.log('evo neki tekst za PUT');  } );
+      this.putToHttp(submit);
     }else
     {
-      this.wsH.postData(submit).subscribe(
-        x=>{ this.vinoForm.reset();},
-        err =>{},
-        ()=>{this.rt.navigate(['']); console.log('evo neki tekst za POST'); } );
+      this.postToHttp(submit);
     }
     // console.log(JSON.stringify(this.vino));
     // console.log(this.vino);
     
   }
+  private postToHttp(submit?: Wine):Subscription {
+    return this.wsH.postData(submit).subscribe(x => { this.vinoForm.reset(); }, err => { }, () => { this.rt.navigate(['']); console.log('evo neki tekst za POST'); });
+  }
+
+  private putToHttp(submit?: Wine):Subscription {
+    submit._id = this.vino._id;
+    return this.wsH.putData(submit).subscribe(x => { this.vinoForm.reset(); }, err => { }, () => { this.rt.navigate(['']); console.log('evo neki tekst za PUT'); });
+  }
+
   onRevert()
   {
     this.vinoForm.reset();
@@ -131,3 +138,11 @@ export class EditWineComponent implements OnInit {
   // }
 }
 // Importovan ruter zbog navigacije
+
+
+// Prošao sam kroz skoro ceo projekat da sam jedva ispisao red komentara
+// a sad kad radi sa serverom, moram da komentarišem
+// ova komponenta kada okida onSubmit događaj, mora da se pretplaćuje, SUBSCRIBE, na događaje
+// da čeka da se izvrši izmena ili dodavanje, i tek onda sme da rutira dalje
+// jako loše objašnjeno na časovima, jako pokvareno od angulara što je tako
+// dodat onDestroy da se spreči curenje memorije rapidno
