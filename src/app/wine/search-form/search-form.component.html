@@ -1,1 +1,13 @@
-<p>search-form works!</p>
+<!-- form.form-inline[formGroup="searchForm"][submit=search]>input.form-control.col-sm-4[id=inlineFormInput][placeholder="Search by Name"][formControlName="searchText"] -->
+<form class="form-inline" [formGroup]="srchForm" (submit)="pretraga()">
+
+    <input type="text" 
+           class="form-control col-sm-4" 
+           id="inlineFormInput" 
+           placeholder="Search by Name" 
+           formControlName="srchTxt">
+
+    <button type="submit" class="btn btn-primary"><span class="fa fa-search"></span></button>
+
+</form>
+<!-- button.btn.btn-primary[type=submit]>span.fa.fa-search -->

@@ -125,4 +125,8 @@ export class WineListComponent implements OnInit,OnDestroy {
     }
     this.refreshList();
   }
+  pretragaIme(p:string){
+    this.hstpParamS.filter.name=p;
+    this.refreshList();
+  }
 }
