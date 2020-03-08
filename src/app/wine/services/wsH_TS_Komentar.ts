@@ -34,3 +34,6 @@
 
 // komentari da svaka od metoda radi su ispisani nakon testiranja. dokle god se API ne promeni
 // ove metode će da rade
+
+// DODAO SAM OD SLOVA DO SLOVA, FILTER ZA PARAMETRIZACIJU
+// TO NIJE TAJ API!!! Apsolutno ne reaguje djubrov

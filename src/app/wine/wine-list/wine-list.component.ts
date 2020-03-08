@@ -25,6 +25,16 @@ export class WineListComponent implements OnInit,OnDestroy {
   public ListaVina: Wine[]=[];
   public httpRSVP:Wine[]=[];
   public brojElemenataPoStranici:number=0;
+  public hstpParamS = 
+  {
+    sort:"",
+    sortDirection:"",
+    page:1,
+    pageSize:7,
+    filter:{
+      name:""
+    }
+  };
   constructor(private wsH:ServedWineService)
   {
   }
@@ -78,7 +88,7 @@ export class WineListComponent implements OnInit,OnDestroy {
   }
   refreshList():Subscription
   {
-    return this.wsH.getData().subscribe
+    return this.wsH.getData(this.hstpParamS).subscribe
     (
       data => {
         this.poslatLimit = data.count;

@@ -26,6 +26,7 @@ export class ServedWineService {
                            .set('filter',p.filter && JSON.stringify(p.filter) || "")
       }  
     }
+    console.log(qP);
     return this.http.get(baseUrl,qP).pipe(map( x=> { return new WineSearchResult(x)}));
   }//dobavljanje radi
   // Izmenio da prima parametre za server, ne razumem odakle sve ove konstrukcije
