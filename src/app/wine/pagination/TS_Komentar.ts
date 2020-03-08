@@ -62,3 +62,5 @@
 // U pripremi za peti čas, obrisan sad konačno nepotreban import winelist-e
 // Sumnjam na to da je nepotreban otkako sam uveo servis i otkako je povratna sprega za paginaciju u toj
 // komponenti izmenjena da sad poziva servis, a ne da menja atribut komponente
+
+// Rad sa serverom i podacima sa njega I DALJE ne utiče na ovu komponentu
