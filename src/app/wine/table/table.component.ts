@@ -50,3 +50,12 @@ export class TableComponent implements OnInit {
 // Prvi i glavni je prikaz podataka, koje dobija preko Input/Output vezivanja a drugi je 
 // Na posebnim mestima u ovoj komponenti se aktiviraju dve metode ove klase koje onda pozivaju servis,
 // odnosno rutiraju korisnika na drugi lokaciju, a na mesto gde je korisnik želeo
+
+
+// Update za kraj časa5:
+// Metode su iste ali je izmenjena implementacija za brisanje 
+// (izmena ostaje ista, barem u ovoj komponenti)
+// U metodi za brisanje poziva se wsH servis i pretplaćuje se, SUBSCRIBE, na rezultate
+// Po pristizanju objekta sa servera, koji je obrisan, emituje se njegov ID, nadKomponenti wineList
+// koji dalje aktivira osvežavanje liste, pa onda samim tim i ove tabele
+// U slučaju greške se ne događa ništa, a na završetku nakon učitavanja podataka piše se u konzolu
