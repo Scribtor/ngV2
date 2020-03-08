@@ -14,3 +14,6 @@
 // Ime fajla za onaj drugi je wsH_TS_Komentar, i po tim wsL i wsH će se oni zapravo razlikovati u
 // komponentama kada one treba da pozovu servis koji CRUD-uje nešto nad podacima
 // wsL to radi iz promenjive definisane u njegovom TS fajlu, wsH će to raditi sa npm expressjs servera
+
+// priča sa serverom je dosta izmenila stvari, čak do te mere da ne znam da li u ijednoj komponenti
+// imam poziv wsL-a
