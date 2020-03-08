@@ -132,3 +132,5 @@ export var VINA =
         picture: 'morizottes.jpg'
     }
 ];
+// vrlo zgodna stvar za svaki slučaj
+// ako nešto pukne, uvek mogu na ovaj spisak da se vratim i koristim ga

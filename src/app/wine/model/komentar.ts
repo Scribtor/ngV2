@@ -24,3 +24,7 @@
 //  Vidi wine-list komponentu za dalje.
 /**/
 // Dodati su get-set pristupne metode, i promenjena su imena atributa, i u modelu i u "fajlu" var VINA
+// ANGULAR SMRDLJIVI KADA RADI SA PROPERTY-ima koji se menjaju dinamički, više ne poznaje get/set 
+// metode, odnosno ne može iz nekog razloga da im pristupi....kao da on sam pravi svoje neke 
+// temp klase koje NEMAJU pristup mojim klasama....debilno, ali drugog odgovora nemam
+// sve je logovano kroz git, nema laži nema prevare, nema greške

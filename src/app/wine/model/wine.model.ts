@@ -34,3 +34,7 @@
     }
     
 }
+
+// U zaglavlju ovog fajla su raznorazne tsLint komande za isključivanje iritantnih žutih linija
+// ionako je samo važno da đubre radi, a ja svakako pišem dovoljno pregledno i sa dovoljno proreda
+// moj je problem što ja pravim i previše proreda ponekad i ponegde, i onda me tsLint smara
