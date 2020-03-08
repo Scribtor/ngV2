@@ -16,17 +16,6 @@ export class WineService{
   constructor(private wsH:ServedWineService) { 
     // this.praviListu(0,this.krajnjiID,5);
   }
-
-  public praviListu(indexStart:number, indexEnd:number,brElem:number)
-  {
-    this.spisak=[];
-    for (let i = indexStart; i < indexEnd; i++) 
-    {
-      this.spisak.push(new Wine(this.httpRSVP[i]));
-    }
-    this.servBrElem=brElem;
-    // console.log(`Poslao sam ${this.brojElemenataPoStranici} elemenata paginationKomponenti`);
-  }
   public vratiSve():Wine[]
   {
     return this.spisak;

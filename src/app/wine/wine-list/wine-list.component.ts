@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterContentInit, AfterViewInit } from '@angular/core';
 import { Wine } from '../model/wine.model'
 import { ServedWineService } from '../services/served-wine.service'
 import { WineService } from '../services/wine.service'
@@ -10,14 +10,26 @@ import { Subscription } from 'rxjs'
 })
 
 export class WineListComponent implements OnInit,OnDestroy {
+  // ngAfterContentInit(): void {
+  //   // this.praviListu(0,this.poslatLimit,5);
+  //   // console.log("5. Treba mi AfterContent");
+
+    
+  // }
+  // ngAfterViewInit(): void {
+  //   // this.praviListu(0,this.poslatLimit,8);
+  //   console.log("8. Treba mi AfterView");
+  // }
   
   public poslatLimit:number;
   public ListaVina: Wine[];
+  public httpRSVP:Wine[];
   public brojElemenataPoStranici:number=0;
   public sub:Subscription;
   constructor(private wsL:WineService,private wsH:ServedWineService)
   {
   }
+  
   odrediKrajnjiIndex(pIndextmp:number,pElemtmp:number,pLimittmp:number):number
   {
     let tmp:number = pIndextmp+pElemtmp;
@@ -43,11 +55,20 @@ export class WineListComponent implements OnInit,OnDestroy {
     // console.log(tp);    //2
     // console.log(pIndex);//7
     // console.log(kIndex);//5
-    this.wsL.praviListu(pIndex,kIndex,this.brojElemenataPoStranici);
+    this.praviListu(pIndex,kIndex,this.brojElemenataPoStranici);
     // console.log(this.ListaVina.length);//0
     
   }
-
+  public praviListu(indexStart:number, indexEnd:number,brElem:number)
+  {
+    this.ListaVina=[];
+    for (let i = indexStart; i < indexEnd; i++) 
+    {
+      this.ListaVina.push(new Wine(this.httpRSVP[i]));
+    }
+    this.brojElemenataPoStranici=brElem;
+    // console.log(`Poslao sam ${this.brojElemenataPoStranici} elemenata paginationKomponenti`);
+  }
   izmeniBrojElemenataPoStrani(p:number)
   {
     // console.log(p);
@@ -63,13 +84,14 @@ export class WineListComponent implements OnInit,OnDestroy {
     (
       data => {
         this.poslatLimit = data.count;
-        this.ListaVina = data.wines;
+        this.httpRSVP = data.wines;
               },
       error => {
         console.log("error", error.statusText);
                },
-      () => {console.log('evo desilo se ovo'); console.log(this.ListaVina)
-       }
+      () => {
+        console.log('pokupio sam podatke?');
+       },
     );
   }
   ngOnInit(): void {
@@ -78,6 +100,6 @@ export class WineListComponent implements OnInit,OnDestroy {
   }
   ngOnDestroy (): void
   {
-    // this.refreshList().unsubscribe(); 
+    this.refreshList().unsubscribe(); 
   }
 }
