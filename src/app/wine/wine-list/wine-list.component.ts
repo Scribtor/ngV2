@@ -113,4 +113,16 @@ export class WineListComponent implements OnInit,OnDestroy {
   {
     this.refreshList().unsubscribe(); 
   }
+  callSort(p:string)
+  {
+    if (this.hstpParamS.sort==p) {
+      if (this.hstpParamS.sortDirection=='desc') {
+        this.hstpParamS.sortDirection = '';}
+        else{this.hstpParamS.sortDirection='desc';}
+    }else{
+      this.hstpParamS.sort=p;
+      this.hstpParamS.sortDirection='';
+    }
+    this.refreshList();
+  }
 }

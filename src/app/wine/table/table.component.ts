@@ -11,12 +11,15 @@ import { ServedWineService } from '../services/served-wine.service'
 })
 export class TableComponent implements OnInit {
  @Input() public Vina: Wine[];
- @Output() public javiPromenuElem:EventEmitter<number>;
- @Output() private vinoDel :EventEmitter<number> = new EventEmitter();
+//  @Output() public javiPromenuElem:EventEmitter<number>; zaovstavština rada sa wsL
+ @Output() private vinoDel :EventEmitter<number>;
+ @Output() private sortiraj: EventEmitter<string>;
 
-  constructor(private wsL:WineService,private rt:Router,private wsH:ServedWineService) 
+  constructor(private rt:Router,private wsH:ServedWineService) 
   { 
-    this.javiPromenuElem=new EventEmitter;
+    // this.javiPromenuElem=new EventEmitter;
+    this.vinoDel=new EventEmitter;
+    this.sortiraj=new EventEmitter;
   }
   callDelete(p:number):void
   {
@@ -26,7 +29,7 @@ export class TableComponent implements OnInit {
       ()=>{
         console.log('evo neki tekst za DELETE');
          });
-    // this.javiPromenuElem.emit(this.ws.vratiSve().length);
+    // this.javiPromenuElem.emit(this.wsL.vratiSve().length);
   }
   callEdit(p:number):void
   {
@@ -35,6 +38,10 @@ export class TableComponent implements OnInit {
     // Što po meni nema smisla, jer nema potrebe da zatrpavamo memoriju glupostima
   }
   ngOnInit(): void {
+  }
+  emitujSort(p:string)
+  {
+    this.sortiraj.emit(p);
   }
 
 }
