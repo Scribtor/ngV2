@@ -13,13 +13,13 @@ const baseUrl="http://localhost:3000/api/wines"
 export class ServedWineService {
   constructor(private http:HttpClient) {}
 
-  getData(p:any):Observable<WineSearchResult>
+  getData(p?:any):Observable<WineSearchResult>
   {
     let qP ={};
     if (p) 
     {
       qP={
-        p: new HttpParams().set('sort',p.sort || "")
+        params: new HttpParams().set('sort',p.sort || "")
                            .set('sortDirection',p.sortDirection || "")
                            .set('page',p.page && p.page.toString() || "")
                            .set('pageSize',p.pageSize && p.pageSize.toString() || "")

@@ -91,15 +91,15 @@ export class WineListComponent implements OnInit,OnDestroy {
     return this.wsH.getData(this.hstpParamS).subscribe
     (
       data => {
-        this.poslatLimit = data.count;
+        this.poslatLimit = data.count-(data.count - this.hstpParamS.page*this.hstpParamS.pageSize);
         this.httpRSVP = data.wines;
+        // this.poslatLimit=7;
               },
       error => {
         console.log("error", error.statusText);
                },
       () => {
-        // console.log('pokupio sam podatke?');
-        this.praviListu(0,this.poslatLimit,this.poslatLimit);
+        this.izmeniBrojElemenataPoStrani(this.poslatLimit);
         console.log(`Dobio sam sa servera ${this.ListaVina.length} komada vina `);
        },
     );
