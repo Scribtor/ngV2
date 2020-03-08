@@ -76,12 +76,24 @@ export class EditWineComponent implements OnInit,OnDestroy {
     
   }
   private postToHttp(submit?: Wine):Subscription {
-    return this.wsH.postData(submit).subscribe(x => { this.vinoForm.reset(); }, err => { }, () => { this.rt.navigate(['']); console.log('evo neki tekst za POST'); });
+    return this.wsH.postData(submit).subscribe(
+      x => { this.vinoForm.reset(); }, 
+      err => { }, 
+      () => { 
+        this.rt.navigate(['']); 
+        console.log('evo neki tekst za POST');
+            });
   }
 
   private putToHttp(submit?: Wine):Subscription {
     submit._id = this.vino._id;
-    return this.wsH.putData(submit).subscribe(x => { this.vinoForm.reset(); }, err => { }, () => { this.rt.navigate(['']); console.log('evo neki tekst za PUT'); });
+    return this.wsH.putData(submit).subscribe(
+      x => { this.vinoForm.reset(); }, 
+      err => { }, 
+      () => { 
+        this.rt.navigate(['']); 
+        console.log('evo neki tekst za PUT'); 
+            });
   }
 
   onRevert()
@@ -137,12 +149,3 @@ export class EditWineComponent implements OnInit,OnDestroy {
   //   btn.disabled=!(this.hasNumUpLow(this.vinoForm.controls.region.value))||this.vinoForm.invalid;
   // }
 }
-// Importovan ruter zbog navigacije
-
-
-// Prošao sam kroz skoro ceo projekat da sam jedva ispisao red komentara
-// a sad kad radi sa serverom, moram da komentarišem
-// ova komponenta kada okida onSubmit događaj, mora da se pretplaćuje, SUBSCRIBE, na događaje
-// da čeka da se izvrši izmena ili dodavanje, i tek onda sme da rutira dalje
-// jako loše objašnjeno na časovima, jako pokvareno od angulara što je tako
-// dodat onDestroy da se spreči curenje memorije rapidno

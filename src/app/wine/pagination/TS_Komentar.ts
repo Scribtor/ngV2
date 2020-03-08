@@ -64,3 +64,11 @@
 // komponenti izmenjena da sad poziva servis, a ne da menja atribut komponente
 
 // Rad sa serverom i podacima sa njega I DALJE ne utiče na ovu komponentu
+
+// Svaka meni čast, onako kako sam napisao paginaciju ručno pre dve nedelje, takva je i ostala
+// Ovde je zaista prava promena bila zadnji put kad sam se bavio ovom komponentom
+// Budući da se ona oslanja isključivo na događaje iz nadkomponente, ona uvek može da radi sa pravim
+// informacijama i da prikazuje prave stvari
+// U rešenju kursadžija pominje se onchanges implementacija
+// OVDE TO NE TREBA! EventEmitter-i već obavljaju posao vrlo uspešno
+// Sve zato što sam dizajnu ove komponente posvetio dužno vreme i logiku kako je napraviti

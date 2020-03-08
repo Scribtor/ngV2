@@ -46,6 +46,6 @@ export class ServedWineService {
 
   getById(id :number):Observable<Wine> {
     return this.http.get(baseUrl + "/" + id).pipe(map(x => { return new Wine(x)}));
-  }
+  }// get po ID-u radi
 
 }

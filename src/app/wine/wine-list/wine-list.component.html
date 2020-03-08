@@ -25,17 +25,3 @@
         ></wcellar-pagination>
     </div>
 </div>
-
-<!-- Ovde je barem stvar prilično jednostavna i bez komplikacija -->
-<!-- pozivamo redom komponente search-form, tabele, i paginacije -->
-<!-- prilikom poziva tabele, govorimo joj da njen atribut "Vina" očekuje vrednosti iz atributa "ListaVina" -->
-<!-- klase ove komponente  -->
-<!-- Prilikom poziva komponente paginacije -->
-<!-- govorimo joj da njen atribut "primljenBrojElemenataPoStranici" očekuje vrednosti -->
- <!-- iz atributa "brojElemenataPoStranici" -->
- <!-- kao i da njen atribut "primljenUkupanBrojElemenata" očekuje vrednosti iz atributa "poslatLimit" -->
- <!-- u suštini, ovaj drugi se zapravo samo jednom menja, odnosno kada se inicijalizuje-->
- <!--  jer on predstavlja ceo niz sa kojim se radi, dok se u ovu celu priču posle ne uključi i back-end -->
- <!-- ova komponenta od komponente koju poziva osluškuje dve stvari, koje su u toj komponenti EventEmitter-i -->
- <!-- koji prosleđuju samo po jedan broj, koji onda koristimo za pozivanje imenovanih metoda wineList klase  -->
- <!-- sa argumentom "$event" koji je u ovom slučaju, ništa drugo do CEO broj -->

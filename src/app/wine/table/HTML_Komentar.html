@@ -1,0 +1,14 @@
+<!-- "let x of wines" je zapravo ngFor eksluzivno skraćena sintaksa u kojoj se na nivou bloka koji SAMO angular -->
+<!-- vidi i zna izvršava for petlja gde je wine zapravo zamena za wines[i] -->
+<!-- klasične for petlje a "i" se i ne vidi i ne štampa-->
+<!-- Po želji može da se doda eksplicitno i definiše index tako što se na kraju prvog izraza doda tačka-zarez i u novu promenjivu smesti vrednost index-a (index je default-no ime koje Angular koristi za indeks u petlji) -->
+<!-- Nakon ovoga, interpolacijom može da se pristupi celom objektu Vina, tako njegovim delovima, ali ako ima potrebe, može se pristupati i indexu u listi -->
+<!-- ngFor se nalazi u tr elementu jer se po tekstu zadatka traži tabelarni prikaz podataka -->
+<!-- Da bi se to slagalo, svaki atribut objekta Vino, se posebno interpolira u svom td elementu -->
+<!-- i+1 je u interpoliranom izrazu jer svi indeksi u nizovima počinju od nule, a to nama ljudima niti je korisno niti je pregledno -->
+<!-- Nama programerima nekad ta nula život znači, ali za konačni proizvod može samo da zbuni korisnika bez ikakve potrebe -->
+
+<!-- Dodavanje servisa APSOLUTNO ništa ne menja ovde-->
+
+<!-- Čak ni dodavanje hostServisa ne menja ovde ništa, ali pošto se zadatak privodi kraju -->
+<!-- sklonjene su iz renderovanja ID zaglavlje i podaci -->

@@ -47,6 +47,8 @@
     11.refreshBtn() ---metoda koja je trenutno zakomentarisana i neće biti definisana
     Pokušaj prilagođavanja validacije koju daje angular sa metodom koju sam sam napisao, u neznanju
     da mi ovakvo nešto nije potrebno, a posle se ispostavilo i suvišno.
+    11. Potpuni višak, ali neka ga nek ostane za primer, kako ne treba.
+    Promena na dugmetu ne mora nužno uvek da okine promenu stanja forme ili atributa drugog dugmeta
     Nije važno da li sama forma vraća validno ili ne, važno je da se submit dugme ne može pritisnuti dokle
     god se SVI uslovi njegovog "disabled" atributa ne ispune, a tu uključujem i drugu metodu koja proverava
     baš to
@@ -79,3 +81,12 @@ SMRDLJIVI ANGULAR!!!
 lakše je u implementacijama samo zakomentarisati jedan poziv a odkomentarisati drugi nego sve menjati,
 sve opet pisati, proveravati itd. Ako radi, radi!
 */
+// Importovan ruter zbog navigacije
+
+
+// Prošao sam kroz skoro ceo projekat da sam jedva ispisao red komentara
+// a sad kad radi sa serverom, moram da komentarišem
+// ova komponenta kada okida onSubmit događaj, mora da se pretplaćuje, SUBSCRIBE, na događaje
+// da čeka da se izvrši izmena ili dodavanje, i tek onda sme da rutira dalje
+// jako loše objašnjeno na časovima, jako pokvareno od angulara što je tako
+// dodat onDestroy da se spreči curenje memorije rapidno

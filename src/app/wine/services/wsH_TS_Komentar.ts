@@ -37,3 +37,11 @@
 
 // DODAO SAM OD SLOVA DO SLOVA, FILTER ZA PARAMETRIZACIJU
 // TO NIJE TAJ API!!! Apsolutno ne reaguje djubrov
+// 
+// 
+// DODATAK: Prilikom generisanja novih HttpParams, obavezno se koristi KLJUČNA REČ "params" a ne "p"
+// koje sam ja imao. zato nije radio TAJ DEO
+// MEĐUTIM API I DALJE NIJE DOBAR JER odgovor sa servera ne menja count kad se uključe filteri
+// pa samim tim sam morao JA LIČNO da paginaciju povezujem tako što ću na asinhronoj metodi
+// int deo rezultata (brojač) čitati iz dužine niza koji mi je drugi deo odgovora sa servera
+// NEŠTO ŠTO bi back-end trebalo da razrešava, ALI KURSADŽIJE NISU IMPLEMENTIRALE API ZA TO

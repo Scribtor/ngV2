@@ -6,7 +6,7 @@
 		<div class="col-10">
 			<input class="form-control" type="text" id="name" placeholder="Name" name="name"
 			formControlName="name">
-            <!-- <small>Wine name is required</small> -->
+            <small class="text-danger" *ngIf="vinoForm.controls.name.touched && vinoForm.controls.name.errors?.required">This field is required</small>
             <!-- <small>Wine name is required, and must be at least 2 characters long</small> -->
 		</div>
     </div>
@@ -16,7 +16,8 @@
 		<div class="col-10">
 			<input class="form-control" type="number" id="year" placeholder="Year" name="year"
 			formControlName="year">
-			 <!-- <small>This field is required</small> -->
+			<small class="text-danger" *ngIf="vinoForm.controls.year.touched && vinoForm.controls.year.errors?.required">This field is required</small>
+			<small class="text-danger" *ngIf="vinoForm.controls.year.touched && vinoForm.controls.year.errors?.required">This field is required</small>
 		</div>
 	</div>
 
@@ -25,7 +26,7 @@
 		<div class="col-10">
 			<input class="form-control" type="text" id="grapes" placeholder="Grapes" name="grapes"
 			formControlName="grapes">
-			 <!-- <small>This field is required</small> -->
+			<small class="text-danger" *ngIf="vinoForm.controls.grapes.touched && vinoForm.controls.grapes.errors?.required">This field is required</small>
 		</div>
 	</div>
 
@@ -34,7 +35,7 @@
 		<div class="col-10">
 			<input class="form-control" type="text" id="country" placeholder="Country" name="country"
 			formControlName="country">
-			 <!-- <small>This field is required</small> -->
+			 <small class="text-danger" *ngIf="vinoForm.controls.country.touched && vinoForm.controls.country.errors?.required">This field is required</small>
 		</div>
 	</div>
 
@@ -70,7 +71,7 @@
 		<div class="col-10">
 			<textarea class="form-control" rows="3" id="description" placeholder="Description" name="description"
 			formControlName="description"></textarea>
-			 <!-- <small>This field is required</small> -->
+			 <small class="text-danger" *ngIf="vinoForm.controls.description.touched && vinoForm.controls.description.errors?.required">This field is required</small>
 		</div>
 	</div>
 	<div class="form-group row float-right">
@@ -82,8 +83,3 @@
 			<!-- <button class="btn btn-primary " id=btn1 type="submit" [disabled]="this.vinoForm.invalid">Submit</button> -->
 		</div>
 	</div>
-
-	<!-- "form>(.form-group.row>(label.col2.col-form-label[for="name"]{Name}+(.col-10>input.form-control[type="text"][id="name"][name="name"][placeholder="Name"]+small{Notification about name})))*6+.form-group.row.float-right>.col-12>button.btn.btn-primary[type="submit"]{Submit}" -->
-<!-- Kad se sve spoji, ovaj iznad izraz zakomentarisan, generiše celu formu,
-doduše sa istim imenima za kontrole i tekstom unutar njih, ali barem ubrzava proces kuckanja
-Emmet abbreviations 4ever! -->

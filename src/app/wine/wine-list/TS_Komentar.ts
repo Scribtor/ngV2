@@ -117,3 +117,16 @@ prilikom inicijalizacije pozovi metodu praviListu() i prosledi sledeće argument
   // igrao sam se dosta sa time da li mi treba ili ne polje "poslatLimit" i ispostavlja se
   // da mi TREBA....svaka meni čast kad sam dobro postavio ovaj projekat, tako da sada i paginacija
   // radi barem na lokalu, odnosno u odnosu na ono što se dobije sa servera
+  // 
+  // Faličan API
+  // API sa servera vraća pogrešne stvari, i nije upotrebljiv za serversku paginaciju, barem ne direkt
+  // Ja prilikom prozivanja refreshList() preuzimam polje "poslatLimit" iz dužine polja niza objekata
+  // koje mi server vraća
+  // čak i PORED parametara koje prosleđujem i koji bi TREBALO da rade
+  // Problem je što OVO NIJE PRVI PUT DA SREĆEM JBN TREBALO
+  // ZA 80 000 RSD NE SME DA BUDE NIGDE TREBALO, RELATIVNO, MOŽDA, NADAMO SE
+  // pretragaIme() je kratka metoda koja izmenjuje polje polja hstpParams, da bi implementirao
+  // funkcionalnost pretrage, koja zamisli, radi kako je zamišljena
+  // 
+  // 
+  // Ovo je ubedljivo najteža komponenta, i kroz nju gotovo sve ide
