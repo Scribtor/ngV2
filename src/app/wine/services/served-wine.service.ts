@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from "rxjs/operators/";
 import { WineSearchResult } from '../model/WineSearchResult'
 import { Observable } from 'rxjs';
@@ -13,10 +13,22 @@ const baseUrl="http://localhost:3000/api/wines"
 export class ServedWineService {
   constructor(private http:HttpClient) {}
 
-  getData():Observable<WineSearchResult>
+  getData(p?:any):Observable<WineSearchResult>
   {
-    return this.http.get(baseUrl).pipe(map( x=> { return new WineSearchResult(x)}));
+    let qP ={};
+    if (p) 
+    {
+      qP={
+        p: new HttpParams().set('sort',p.sort || "")
+                           .set('sortDirection',p.sortDirection || "")
+                           .set('page',p.page && p.page.toString() || "")
+                           .set('pageSize',p.pageSize && p.pageSize.toString() || "")
+                           .set('filter',p.filter && JSON.stringify(p.filter) || "")
+      }  
+    }
+    return this.http.get(baseUrl,qP).pipe(map( x=> { return new WineSearchResult(x)}));
   }//dobavljanje radi
+  // Izmenio da prima parametre za server, ne razumem odakle sve ove konstrukcije
 
   putData(p:Wine):Observable<Wine>
   {
@@ -34,4 +46,5 @@ export class ServedWineService {
   getById(id :number):Observable<Wine> {
     return this.http.get(baseUrl + "/" + id).pipe(map(x => { return new Wine(x)}));
   }
+
 }
