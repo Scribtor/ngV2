@@ -81,7 +81,7 @@ export class EditWineComponent implements OnInit,OnDestroy {
       err => { },
       () => {
         this.rt.navigate(['']);
-        console.log('evo neki tekst za POST');
+        // console.log('evo neki tekst za POST');
             });
   }
 
@@ -92,7 +92,7 @@ export class EditWineComponent implements OnInit,OnDestroy {
       err => { },
       () => {
         this.rt.navigate(['']);
-        console.log('evo neki tekst za PUT');
+        // console.log('evo neki tekst za PUT');
             });
   }
 

@@ -14,18 +14,18 @@ export class WineListComponent implements OnInit,OnDestroy {
   //   // this.praviListu(0,this.poslatLimit,5);
   //   // console.log("5. Treba mi AfterContent");
 
-    
+
   // }
   // ngAfterViewInit(): void {
   //   // this.praviListu(0,this.poslatLimit,8);
   //   console.log("8. Treba mi AfterView");
   // }
-  
+
   public poslatLimit:number=0;
   public ListaVina: Wine[]=[];
   public httpRSVP:Wine[]=[];
   public brojElemenataPoStranici:number=0;
-  public hstpParamS = 
+  public hstpParamS =
   {
     sort:"",
     sortDirection:"",
@@ -38,13 +38,13 @@ export class WineListComponent implements OnInit,OnDestroy {
   constructor(private wsH:ServedWineService)
   {
   }
-  
+
   odrediKrajnjiIndex(pIndextmp:number,pElemtmp:number,pLimittmp:number):number
   {
     let tmp:number = pIndextmp+pElemtmp;
     if (
           (pIndextmp+pElemtmp)>pLimittmp
-       ) 
+       )
     {
       tmp=pIndextmp + (pLimittmp-pIndextmp);
       return tmp;
@@ -66,12 +66,12 @@ export class WineListComponent implements OnInit,OnDestroy {
     // console.log(kIndex);//5
     this.praviListu(pIndex,kIndex,this.brojElemenataPoStranici);
     // console.log(this.ListaVina.length);//0
-    
+
   }
   public praviListu(indexStart:number, indexEnd:number,brElem:number)
   {
     this.ListaVina=[];
-    for (let i = indexStart; i < indexEnd; i++) 
+    for (let i = indexStart; i < indexEnd; i++)
     {
       this.ListaVina.push(new Wine(this.httpRSVP[i]));
     }
@@ -81,8 +81,8 @@ export class WineListComponent implements OnInit,OnDestroy {
   izmeniBrojElemenataPoStrani(p:number)
   {
     // console.log(p);
-    
-    console.log(`Javljeno da je novi broj elemenata ${p}`);
+
+    // console.log(`Javljeno da je novi broj elemenata ${p}`);
     this.brojElemenataPoStranici=Number(p);
     this.izmeniStranuPaginacije(1);
   }
@@ -101,17 +101,17 @@ export class WineListComponent implements OnInit,OnDestroy {
                },
       () => {
         this.izmeniBrojElemenataPoStrani(this.poslatLimit);
-        console.log(`Dobio sam sa servera ${this.ListaVina.length} komada vina `);
+        // console.log(`Dobio sam sa servera ${this.ListaVina.length} komada vina `);
        },
     );
   }
   ngOnInit(): void {
     this.refreshList();
-    console.log(`Dobio sam sa servera ${this.ListaVina.length} komada vina `);
+    // console.log(`Dobio sam sa servera ${this.ListaVina.length} komada vina `);
   }
   ngOnDestroy (): void
   {
-    this.refreshList().unsubscribe(); 
+    this.refreshList().unsubscribe();
   }
   callSort(p:string)
   {

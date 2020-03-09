@@ -16,7 +16,7 @@ export class ServedWineService {
   getData(p?:any):Observable<WineSearchResult>
   {
     let qP ={};
-    if (p) 
+    if (p)
     {
       qP={
         params: new HttpParams().set('sort',p.sort || "")
@@ -24,9 +24,9 @@ export class ServedWineService {
                            .set('page',p.page && p.page.toString() || "")
                            .set('pageSize',p.pageSize && p.pageSize.toString() || "")
                            .set('filter',p.filter && JSON.stringify(p.filter) || "")
-      }  
+      }
     }
-    console.log(qP);
+    // console.log(qP);
     return this.http.get(baseUrl,qP).pipe(map( x=> { return new WineSearchResult(x)}));
   }//dobavljanje radi
   // Izmenio da prima parametre za server, ne razumem odakle sve ove konstrukcije

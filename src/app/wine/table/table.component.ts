@@ -15,8 +15,8 @@ export class TableComponent implements OnInit {
  @Output() private vinoDel :EventEmitter<number>;
  @Output() private sortiraj: EventEmitter<string>;
 
-  constructor(private rt:Router,private wsH:ServedWineService) 
-  { 
+  constructor(private rt:Router,private wsH:ServedWineService)
+  {
     // this.javiPromenuElem=new EventEmitter;
     this.vinoDel=new EventEmitter;
     this.sortiraj=new EventEmitter;
@@ -27,7 +27,7 @@ export class TableComponent implements OnInit {
       x=> {this.vinoDel.emit(x._id)},
       err =>{},
       ()=>{
-        console.log('evo neki tekst za DELETE');
+        // console.log('evo neki tekst za DELETE');
          });
     // this.javiPromenuElem.emit(this.wsL.vratiSve().length);
   }
