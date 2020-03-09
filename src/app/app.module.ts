@@ -12,7 +12,6 @@ import { TableComponent } from './wine/table/table.component';
 import { PaginationComponent } from './wine/pagination/pagination.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AbautComponent } from './abaut/abaut.component';
 import { AboutComponent } from './wine/about/about.component'
 
 
@@ -26,7 +25,6 @@ import { AboutComponent } from './wine/about/about.component'
     SearchFormComponent,
     TableComponent,
     PaginationComponent,
-    AbautComponent,
     AboutComponent
   ],
   imports: [
@@ -41,7 +39,7 @@ import { AboutComponent } from './wine/about/about.component'
 })
 export class AppModule { }
 // Ovo je sve sam Angular generisao.
-// Moja jedina izmena je putanja sa koje zove AppModuleComponent 
+// Moja jedina izmena je putanja sa koje zove AppModuleComponent
 // (originalno je bila $cwd/app-routing.module)
 
 // FormsModule i ReactiveFormsModule snippeti za angular automatski imaju kao import deklaraciju --- vrlo zgodno
