@@ -11,7 +11,9 @@ import { SearchFormComponent } from './wine/search-form/search-form.component';
 import { TableComponent } from './wine/table/table.component';
 import { PaginationComponent } from './wine/pagination/pagination.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { AbautComponent } from './abaut/abaut.component';
+import { AboutComponent } from './wine/about/about.component'
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http'
     EditWineComponent,
     SearchFormComponent,
     TableComponent,
-    PaginationComponent
+    PaginationComponent,
+    AbautComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

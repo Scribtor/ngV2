@@ -21,4 +21,9 @@ export class NavbarComponent implements OnInit {
   {
     this.rt.navigate(['wines/add']);
   }
+
+  callAbout()
+  {
+    this.rt.navigate(['about/']);
+  }
 }
