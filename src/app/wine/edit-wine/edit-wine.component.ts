@@ -45,7 +45,7 @@ export class EditWineComponent implements OnInit,OnDestroy {
     this.vino=this.vinoForm.value;
     let id:string = this.ar.snapshot.params.id;
     // console.log(`prosledio si wines/${id}`);
-    if (id)
+    if (id!==undefined)
     {
     this.wsH.getById(Number(id)).subscribe(
       x=> {
@@ -58,8 +58,8 @@ export class EditWineComponent implements OnInit,OnDestroy {
     // console.log(this.vinoForm.status);
   }
   ngOnDestroy(): void {
-   this.putToHttp().unsubscribe();
-   this.postToHttp().unsubscribe();
+  //  this.putToHttp().unsubscribe();
+  //  this.postToHttp().unsubscribe();
   }
   onSubmit()
   {

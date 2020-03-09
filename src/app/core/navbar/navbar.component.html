@@ -4,16 +4,11 @@
 
 	<ul class="navbar-nav mr-auto">
 		<li class="nav-item">
-			<a class="nav-link" 
-			[routerLink]="['/wines']" 
-			routerLinkActive="router-link-active">Home</a>
+			<a class="nav-link" (click)="callHome()">Home</a>
 		</li>
 
 		<li class="nav-item">
-			<a class="nav-link" 
-			[routerLink]="['wines/add']"
-			routerLinkActive="router-link-active"
-			>Add wine</a>
+			<a class="nav-link" (click)="callEdit()">Add wine</a>
 		</li>
 	</ul>
 

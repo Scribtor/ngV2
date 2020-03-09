@@ -11,7 +11,7 @@
     5.U samom telu konstruktora pozivamo metodu koju inače ne bi mogli koristiti, koja koristi injektovani
     formBuilder objekat i njegovu group metodu da sastavi formGroup
     6.ngOnInit() je metoda koja se proziva odmah nakon iskonstruisanog objekta, a u ovom slučaju ovde se
-    prvo za svaki slučaj, resetuje vrednost formGroup-e a onda našem atributu "Vino" prosleđujemo vrednosti 
+    prvo za svaki slučaj, resetuje vrednost formGroup-e a onda našem atributu "Vino" prosleđujemo vrednosti
     sa te i takve formGroup-e (null i "")
     konzolni logovi su zakomentarisani
     7.onSubmit() je metoda koja se okida samo kada se pritisne dugme "Submit" i ona kupi vrednost unetu u formu,
@@ -21,7 +21,7 @@
     tek nakon toga da očistimo formu i pripremimo je za sledeći unos
     8.onRevert() je metoda koja, ZASAD, služi samo za čišćenje forme jednostavnim pozivom metode reset
     klase formGroup
-    9.makeForm() je metoda koja na osnovu injektovanog formBuilder objekta i njegove group metode pravi 
+    9.makeForm() je metoda koja na osnovu injektovanog formBuilder objekta i njegove group metode pravi
     formGroup. Ovde možemo videti da prilikom konstrukcije, omogućujemo validaciju podataka, odnosno da li
     se samo zahteva da polje nije prazno "Validators.required" ili i da odgovaraju specifičnim zahtevima
     Napr: kontrola na formi "godina" je broj i ne sme biti manja od 1900 i veća od 2020, odnosno ne uzimamo
@@ -42,7 +42,7 @@
     u malo slovo posebnom metodom (taj karakter JESTE malo slovo) postavi odgovarajući boolean na true i
     ponovo preskači ostale provere, idi na korekciju
     Nakon završetka for petlje, vrati izraz koji je logički rezultat sva tri boolean-a unutar metode.
-    Ako bar jedan od njih nije true, vratiće se false 
+    Ako bar jedan od njih nije true, vratiće se false
     (samo true&&true&&true vratiće true, u bilo kojoj drugoj kombinaciji vratiće se false)
     11.refreshBtn() ---metoda koja je trenutno zakomentarisana i neće biti definisana
     Pokušaj prilagođavanja validacije koju daje angular sa metodom koju sam sam napisao, u neznanju
@@ -90,3 +90,6 @@ sve opet pisati, proveravati itd. Ako radi, radi!
 // da čeka da se izvrši izmena ili dodavanje, i tek onda sme da rutira dalje
 // jako loše objašnjeno na časovima, jako pokvareno od angulara što je tako
 // dodat onDestroy da se spreči curenje memorije rapidno
+//
+//
+// Moram da rešim problem rutiranja, jer kad ngOnDestroy radi, onda rutiranje blokira

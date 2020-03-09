@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'wcellar-navbar',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private rt:Router) { }
 
   ngOnInit(): void {
   }
 
+  callHome()
+  {
+    this.rt.navigate(['wines/']);
+  }
+  callEdit()
+  {
+    this.rt.navigate(['wines/add']);
+  }
 }
