@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup,FormBuilder, Validators } from "@angular/forms";
+import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { Wine } from '../model/wine.model'
-import { WineService } from '../services/wine.service'
+// import { WineService } from '../services/wine.service'
 import { ServedWineService } from '../services/served-wine.service'
 import { Subscription } from 'rxjs';
 @Component({
@@ -30,7 +30,7 @@ export class EditWineComponent implements OnInit,OnDestroy {
     private fb:FormBuilder,
     private ar:ActivatedRoute,
     private wsH:ServedWineService
-    ) 
+    )
 
   {
     this.makeForm();
@@ -45,11 +45,11 @@ export class EditWineComponent implements OnInit,OnDestroy {
     this.vino=this.vinoForm.value;
     let id:string = this.ar.snapshot.params.id;
     // console.log(`prosledio si wines/${id}`);
-    if (id) 
+    if (id)
     {
     this.wsH.getById(Number(id)).subscribe(
-      x=> { 
-        this.vino=x; 
+      x=> {
+        this.vino=x;
         this.vinoForm.patchValue(this.vino)
           }
     );
@@ -64,7 +64,7 @@ export class EditWineComponent implements OnInit,OnDestroy {
   onSubmit()
   {
     let submit:Wine=new Wine(this.vinoForm.value);
-    if (this.vino && this.vino._id) 
+    if (this.vino && this.vino._id)
     {
       this.putToHttp(submit);
     }else
@@ -73,14 +73,14 @@ export class EditWineComponent implements OnInit,OnDestroy {
     }
     // console.log(JSON.stringify(this.vino));
     // console.log(this.vino);
-    
+
   }
   private postToHttp(submit?: Wine):Subscription {
     return this.wsH.postData(submit).subscribe(
-      x => { this.vinoForm.reset(); }, 
-      err => { }, 
-      () => { 
-        this.rt.navigate(['']); 
+      x => { this.vinoForm.reset(); },
+      err => { },
+      () => {
+        this.rt.navigate(['']);
         console.log('evo neki tekst za POST');
             });
   }
@@ -88,11 +88,11 @@ export class EditWineComponent implements OnInit,OnDestroy {
   private putToHttp(submit?: Wine):Subscription {
     submit._id = this.vino._id;
     return this.wsH.putData(submit).subscribe(
-      x => { this.vinoForm.reset(); }, 
-      err => { }, 
-      () => { 
-        this.rt.navigate(['']); 
-        console.log('evo neki tekst za PUT'); 
+      x => { this.vinoForm.reset(); },
+      err => { },
+      () => {
+        this.rt.navigate(['']);
+        console.log('evo neki tekst za PUT');
             });
   }
 
@@ -114,14 +114,14 @@ export class EditWineComponent implements OnInit,OnDestroy {
   }
   hasNumUpLow(p:string):boolean
   {
-    if (p==null || p=="") {
+    if (p==null || p=='') {
       return false;
     }
     let flagNum:boolean=false;
     let flagUp:boolean=false;
     let flagLow:boolean=false;
-    
-    for (let i = 0; i < p.length; i++) 
+
+    for (let i = 0; i < p.length; i++)
     {
       let x = Number(p[i]);
       if (x) {

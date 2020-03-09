@@ -6,8 +6,12 @@
 		<div class="col-10">
 			<input class="form-control" type="text" id="name" placeholder="Name" name="name"
 			formControlName="name">
-            <small class="text-danger" *ngIf="vinoForm.controls.name.touched && vinoForm.controls.name.errors?.required">This field is required</small>
-            <!-- <small>Wine name is required, and must be at least 2 characters long</small> -->
+            <small class="text-danger"
+            *ngIf="vinoForm.controls.name.touched && vinoForm.controls.name.errors?.required"
+            >This field is required</small>
+            <small class="text-danger"
+            *ngIf="vinoForm.controls.name.touched && vinoForm.controls.name.errors?.minlength"
+            >Wine name is required, and must be at least 2 characters long</small>
 		</div>
     </div>
 
@@ -16,8 +20,9 @@
 		<div class="col-10">
 			<input class="form-control" type="number" id="year" placeholder="Year" name="year"
 			formControlName="year">
-			<small class="text-danger" *ngIf="vinoForm.controls.year.touched && vinoForm.controls.year.errors?.required">This field is required</small>
-			<small class="text-danger" *ngIf="vinoForm.controls.year.touched && vinoForm.controls.year.errors?.required">This field is required</small>
+      <small class="text-danger" *ngIf="vinoForm.controls.year.touched && vinoForm.controls.year.errors?.required">This field is required</small>
+      <small class="text-danger" *ngIf="vinoForm.controls.year.touched &&
+            (vinoForm.controls.year.errors?.min || vinoForm.controls.year.errors?.max)">The year range should be 1900-2020</small>
 		</div>
 	</div>
 
@@ -55,12 +60,12 @@
 		<div class="col-10">
 			<input class="form-control" type="password" id="Rregion" placeholder="Retype region"  name="Rregion" required
 			formControlName="Rregion">
-			 <small class="text-danger" 
-			 *ngIf="vinoForm.controls.Rregion.touched && 
+			 <small class="text-danger"
+			 *ngIf="vinoForm.controls.Rregion.touched &&
 			 vinoForm.controls.Rregion.errors?.required"
 			 >This field is required</small>
 			 <br>
-			 <small class="text-danger" 
+			 <small class="text-danger"
 			 *ngIf="vinoForm.controls.Rregion.touched && !(vinoForm.controls.Rregion.value===vinoForm.controls.region.value)"
 			 >Fields: Region and Retype region must be equal</small>
 		</div>
