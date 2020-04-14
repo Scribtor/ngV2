@@ -2,6 +2,10 @@
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
       <li class="page-item"
+      (click)="odaberiStranu(1)"
+      *ngIf="odabranaStrana>1"
+      ><a class="page-link">First</a></li>
+      <li class="page-item"
       (click)="odaberiStranu(odabranaStrana-1)"
       *ngIf="odabranaStrana>1"
       ><a class="page-link">Previous</a></li>
@@ -14,6 +18,10 @@
         (click)="odaberiStranu(odabranaStrana+1)"
         *ngIf="odabranaStrana<(dobaviBrojStrana())"
         >Next</a></li>
+      <li class="page-item"><a class="page-link"
+        (click)="odaberiStranu(dobaviBrojStrana())"
+        *ngIf="odabranaStrana<(dobaviBrojStrana())"
+        >Last</a></li>
     </ul>
   </nav>
   </div>
