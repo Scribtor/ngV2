@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, OnChanges} from '@angular/core';
 @Component({
   selector: 'wcellar-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent implements OnInit, OnChanges {
   @Input() primljenBrojElemenataPoStranici:number;
   @Input() primljenUkupanBrojElemenata:number;
   public nizHtml:number[]=[];
@@ -15,6 +15,10 @@ export class PaginationComponent implements OnInit {
   {
     this.javljenaStranaPaginacije=new EventEmitter;
     this.javljenBrojElemenata = new EventEmitter;
+  }
+  ngOnChanges(): void 
+  {
+    this.ngOnInit();
   }
 
   public dobaviBrojStrana():number
@@ -55,6 +59,6 @@ export class PaginationComponent implements OnInit {
     this.nizHtml=this.nizZaHtml(this.dobaviBrojStrana());
     // console.log(this.nizHtml);
     // console.log(this.dobaviBrojStrana());
-    this.odaberiStranu(this.dobaviBrojStrana());
+    this.odaberiStranu(1);
   }
 }
