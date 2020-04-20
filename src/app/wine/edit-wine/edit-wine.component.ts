@@ -61,20 +61,6 @@ export class EditWineComponent implements OnInit,OnDestroy {
   //  this.putToHttp().unsubscribe();
   //  this.postToHttp().unsubscribe();
   }
-  onSubmit()
-  {
-    let submit:Wine=new Wine(this.vinoForm.value);
-    if (this.vino && this.vino._id)
-    {
-      this.putToHttp(submit);
-    }else
-    {
-      this.postToHttp(submit);
-    }
-    // console.log(JSON.stringify(this.vino));
-    // console.log(this.vino);
-
-  }
   private postToHttp(submit?: Wine):Subscription {
     return this.wsH.postData(submit).subscribe(
       x => { this.vinoForm.reset(); },
@@ -96,8 +82,41 @@ export class EditWineComponent implements OnInit,OnDestroy {
             });
   }
 
+  onSubmit()
+  {
+    let submit:Wine=new Wine(this.vinoForm.value);
+    if (this.vino && this.vino._id)
+    {
+      this.putToHttp(submit);
+    }else
+    {
+      this.postToHttp(submit);
+    }
+    // console.log(JSON.stringify(this.vino));
+    // console.log(this.vino);
+
+  }
+
   onRevert()
   {
+    let id:string = this.ar.snapshot.params.id;
+    if (id!==undefined)
+    {
+    this.wsH.getById(Number(id)).subscribe(
+      x=> {
+        this.vino=x;
+        this.vinoForm.patchValue(this.vino)
+          }
+    );
+    }
+    if (this.vino && this.vino._id) 
+    {
+      //;
+      this.vinoForm.setValue(this.wsH.getById(Number(id)));
+    }else
+    {
+      this.vinoForm.reset();
+    }
     this.vinoForm.reset();
   }
   makeForm()

@@ -5,7 +5,7 @@ import { WineSearchResult } from '../model/WineSearchResult'
 import { Observable } from 'rxjs';
 import { Wine } from '../model/wine.model';
 
-const baseUrl="http://localhost:3000/api/wines"
+const baseUrl="http://25.64.247.9:3000/api/wines"
 
 @Injectable({
   providedIn: 'root'
